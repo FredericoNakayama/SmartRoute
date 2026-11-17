@@ -12,9 +12,22 @@ function clienteFalso(resposta) {
   const chamadas = [];
   return {
     chamadas,
-    beta: { messages: { create: async (params) => { chamadas.push(params); if (resposta instanceof Error) throw resposta; return resposta; } } },
+    beta: {
+      messages: {
+        stream: (params) => {
+          chamadas.push(params);
+          return { finalMessage: async () => { if (resposta instanceof Error) throw resposta; return resposta; } };
+        },
+      },
+    },
   };
 }
+
+test("usa streaming com espaço para respostas grandes (pico de 55 pedidos)", async () => {
+  const c = clienteFalso(respostaTexto(JSON.stringify(ok)));
+  await roteirizarComClaude(entrada, c);
+  assert.equal(c.chamadas[0].max_tokens, 64000);
+});
 const respostaTexto = (texto, stop_reason = "end_turn") => ({ stop_reason, content: [{ type: "thinking", thinking: "" }, { type: "text", text: texto }] });
 
 test("roteirização chama o modelo com spec, schema e fallback", async () => {
