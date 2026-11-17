@@ -20,6 +20,14 @@ function selecionarCenario(card) {
 
 document.querySelectorAll(".card-cenario").forEach((card) => card.addEventListener("click", () => selecionarCenario(card)));
 
+// Link direto para um cenário: /?cenario=cenario-1 já roteiriza ao abrir.
+const cenarioDaUrl = new URLSearchParams(location.search).get("cenario");
+const cardDaUrl = document.querySelector(`.card-cenario[data-cenario="${CSS.escape(cenarioDaUrl ?? "")}"]`);
+if (cardDaUrl) {
+  selecionarCenario(cardDaUrl);
+  queueMicrotask(() => btn.click());
+}
+
 document.getElementById("arquivo").addEventListener("change", async (ev) => {
   const arquivo = ev.target.files[0];
   if (!arquivo) return;

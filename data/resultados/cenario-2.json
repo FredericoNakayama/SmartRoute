@@ -6,251 +6,262 @@
     "origem": "cenario",
     "cenario_id": "cenario-2",
     "n_pedidos": 55,
-    "n_envios": 0,
-    "paletes_total": 0,
-    "custo_total": 0,
-    "custo_referencia": 0,
-    "saving_pct": 0,
-    "custo_por_palete": 0,
-    "ocupacao_media": 0,
+    "n_envios": 13,
+    "paletes_total": 184,
+    "custo_total": 46530,
+    "custo_referencia": 133100,
+    "saving_pct": 65,
+    "custo_por_palete": 252.88,
+    "ocupacao_media": 89,
     "mix_veiculos": {
-      "VUC": 0,
-      "Toco": 0,
-      "Truck": 0,
-      "Carreta": 0,
-      "Fracionado": 0
+      "VUC": 1,
+      "Toco": 1,
+      "Truck": 1,
+      "Carreta": 5,
+      "Fracionado": 7
     },
     "custo_por_transportadora": {
-      "T1": 0,
-      "T2": 0,
-      "T3": 0
+      "T1": 9510,
+      "T2": 20000,
+      "T3": 17020
     },
     "n_violacoes": 0,
     "violacoes": [],
-    "envios": [],
+    "envios": [
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T3",
+        "veiculo": "Carreta",
+        "uf": "RJ",
+        "pedidos": [
+          "P023",
+          "P041",
+          "P054",
+          "P014",
+          "P032",
+          "P039",
+          "P012",
+          "P025"
+        ],
+        "justificativa": "P014, P023, P032, P039 e P054 vencem em 01/12, e só a lotação T3 (prazo 1 dia) cumpre esse prazo. Juntos somam 13.213 kg, acima dos 12.000 kg do Truck. Carreta T3 por R$ 3.950 + 2 paradas (R$ 300) = R$ 4.250, contra Truck + Toco T3 por R$ 5.400. O espaço livre foi completado com P012, P025 e P041, sem nenhuma cidade nova: 28 paletes e 23.571 kg.",
+        "peso_kg": 23571,
+        "paletes": 28,
+        "ocupacao_kg": 87,
+        "custo": 4250
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T1",
+        "veiculo": "Carreta",
+        "uf": "RJ",
+        "pedidos": [
+          "P016",
+          "P021",
+          "P027",
+          "P035",
+          "P049",
+          "P013",
+          "P043"
+        ],
+        "justificativa": "Volta Redonda + Niterói com 28 paletes e 23.831 kg. Carreta T1 por R$ 3.450 + 1 parada (R$ 180) = R$ 3.630, a lotação mais barata do RJ (T2: R$ 3.600, T3: R$ 3.950). Prazo de 2 dias atende P027 (02/12) e P021, que exige carga dedicada.",
+        "peso_kg": 23831,
+        "paletes": 28,
+        "ocupacao_kg": 88,
+        "custo": 3630
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T1",
+        "veiculo": "Carreta",
+        "uf": "RJ",
+        "pedidos": [
+          "P001",
+          "P003",
+          "P007",
+          "P009",
+          "P028",
+          "P046",
+          "P002",
+          "P019",
+          "P048"
+        ],
+        "justificativa": "Resende + Rio com 28 paletes e 23.836 kg, por R$ 3.450 + R$ 180 = R$ 3.630. Duas carretas T1 cheias custam menos por palete (cerca de R$ 130) que Truck ou fracionado. P002 (02/12) cabe no prazo de 2 dias.",
+        "peso_kg": 23836,
+        "paletes": 28,
+        "ocupacao_kg": 88,
+        "custo": 3630
+      },
+      {
+        "modalidade": "fracionado",
+        "transportadora": "T1",
+        "veiculo": null,
+        "uf": "RJ",
+        "pedidos": [
+          "P005",
+          "P024",
+          "P036"
+        ],
+        "justificativa": "As 3 carretas RJ comportam 84 paletes, e há 91 paletes sem restrição de Toco, então sobram 7. Fracionado T1 a R$ 210/palete: R$ 420 + R$ 420 + R$ 630 = R$ 1.470. Sai mais barato que um Toco T1 (R$ 1.950) ou um Truck T1 (R$ 2.550). Prazo de 3 dias atende os limites de 03 a 05/12. Ocupa 7 dos 10 paletes disponíveis.",
+        "peso_kg": 6059,
+        "paletes": 7,
+        "ocupacao_kg": null,
+        "custo": 1470
+      },
+      {
+        "modalidade": "fracionado",
+        "transportadora": "T3",
+        "veiculo": null,
+        "uf": "RJ",
+        "pedidos": [
+          "P015"
+        ],
+        "justificativa": "P015 aceita no máximo Toco e vence em 02/12. Fracionado T3 entrega com Toco em 2 dias por R$ 780 (3 × R$ 260). As alternativas são VUC T1 (R$ 1.450) ou Toco T1 (R$ 1.950). O fracionado T1 usa Truck e o T2 usa Carreta, ambos acima da restrição.",
+        "peso_kg": 2140,
+        "paletes": 3,
+        "ocupacao_kg": null,
+        "custo": 780
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T3",
+        "veiculo": "Toco",
+        "uf": "RS",
+        "pedidos": [
+          "P029",
+          "P034"
+        ],
+        "justificativa": "Os dois pedidos vencem em 02/12 e só a lotação T3 (2 dias) cumpre o prazo. P034 aceita no máximo Toco. Toco T3 por R$ 4.800 leva os dois pedidos de Canoas (4.981 kg), sem parada extra.",
+        "peso_kg": 4981,
+        "paletes": 6,
+        "ocupacao_kg": 83,
+        "custo": 4800
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T3",
+        "veiculo": "Truck",
+        "uf": "RS",
+        "pedidos": [
+          "P004",
+          "P052",
+          "P038",
+          "P044"
+        ],
+        "justificativa": "P004, P052 e P044 vencem em 02/12 (P052 e P044 exigem carga dedicada) e somam 10.183 kg. Truck T3 por R$ 6.200 + 1 parada (R$ 150) = R$ 6.350, contra Carreta T3 por R$ 8.450. P038, de Porto Alegre, aproveita a sobra sem custo: 11.969 kg e 15 paletes.",
+        "peso_kg": 11969,
+        "paletes": 15,
+        "ocupacao_kg": 100,
+        "custo": 6350
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T2",
+        "veiculo": "VUC",
+        "uf": "RS",
+        "pedidos": [
+          "P033",
+          "P006"
+        ],
+        "justificativa": "P033 só recebe VUC e exige carga dedicada. VUC T2 é a opção mais barata: R$ 3.100, contra R$ 3.300 na T1 e R$ 3.700 na T3. P006 entra junto (2.950 kg no total) por + R$ 200 de parada, contra R$ 680 se fosse fracionado.",
+        "peso_kg": 2950,
+        "paletes": 4,
+        "ocupacao_kg": 98,
+        "custo": 3300
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T2",
+        "veiculo": "Carreta",
+        "uf": "RS",
+        "pedidos": [
+          "P031",
+          "P045",
+          "P018",
+          "P010",
+          "P022",
+          "P047",
+          "P008",
+          "P037"
+        ],
+        "justificativa": "Carreta T2 por R$ 7.100 é a mais barata do RS (T1: R$ 7.600; T3: R$ 8.300), e o prazo de 3 dias cumpre os vencimentos de 03/12. Leva Canoas, Porto Alegre e Santa Maria com 28 paletes e 22.102 kg, por R$ 7.100 + R$ 400 = R$ 7.500.",
+        "peso_kg": 22102,
+        "paletes": 28,
+        "ocupacao_kg": 82,
+        "custo": 7500
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T2",
+        "veiculo": "Carreta",
+        "uf": "RS",
+        "pedidos": [
+          "P050",
+          "P051",
+          "P053",
+          "P011",
+          "P026",
+          "P030"
+        ],
+        "justificativa": "Porto Alegre, Caxias e Pelotas com 28 paletes e 23.182 kg, por R$ 7.100 + R$ 400 = R$ 7.500. Inclui P050, que exige carga dedicada. Trocar uma carreta por Truck + fracionado custaria mais, pois 15 paletes extras sairiam a R$ 340 ou mais por palete.",
+        "peso_kg": 23182,
+        "paletes": 28,
+        "ocupacao_kg": 86,
+        "custo": 7500
+      },
+      {
+        "modalidade": "fracionado",
+        "transportadora": "T2",
+        "veiculo": null,
+        "uf": "RS",
+        "pedidos": [
+          "P017"
+        ],
+        "justificativa": "Excedente de 5 paletes das carretas. P017 vence em 05/12 e o fracionado T2 (prazo 5 dias) cumpre o prazo por R$ 1.700. A outra divisão possível, fracionando 6 paletes, custaria R$ 2.040 e economizaria só R$ 200 em paradas. Ocupa 5 dos 8 paletes disponíveis.",
+        "peso_kg": 4373,
+        "paletes": 5,
+        "ocupacao_kg": null,
+        "custo": 1700
+      },
+      {
+        "modalidade": "fracionado",
+        "transportadora": "T3",
+        "veiculo": null,
+        "uf": "RS",
+        "pedidos": [
+          "P020"
+        ],
+        "justificativa": "P020 aceita no máximo Toco e pesa 1.769 kg, então não cabe no VUC junto com P033. Fracionado T3 entrega com Toco por R$ 840, contra R$ 3.100 de um VUC T2 exclusivo.",
+        "peso_kg": 1769,
+        "paletes": 2,
+        "ocupacao_kg": null,
+        "custo": 840
+      },
+      {
+        "modalidade": "fracionado",
+        "transportadora": "T1",
+        "veiculo": null,
+        "uf": "RS",
+        "pedidos": [
+          "P040"
+        ],
+        "justificativa": "P040 aceita no máximo Truck, então não pode ir nas carretas, e não cabe no Truck T3 (ficaria com 12.011 kg). Fracionado T1 entrega com Truck em 6 dias, chegando em 06/12, antes do limite de 07/12, por R$ 780 (mínimo R$ 700).",
+        "peso_kg": 1828,
+        "paletes": 2,
+        "ocupacao_kg": null,
+        "custo": 780
+      }
+    ],
     "nao_alocados": [
       {
-        "pedido_id": "P001",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P002",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P003",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P004",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P005",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P006",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P007",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P008",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P009",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P010",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P011",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P012",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P013",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P014",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P015",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P016",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P017",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P018",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P019",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P020",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P021",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P022",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P023",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P024",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P025",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P026",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P027",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P028",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P029",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P030",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P031",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P032",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P033",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P034",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P035",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P036",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P037",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P038",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P039",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P040",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P041",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
         "pedido_id": "P042",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P043",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P044",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P045",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P046",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P047",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P048",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P049",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P050",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P051",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P052",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P053",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P054",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "motivo": "R6 + R2: o cliente só recebe VUC, mas o pedido pesa 3.120 kg e o VUC comporta 3.000 kg. Todos os fracionados entregam com Toco, Truck ou Carreta, maiores que VUC."
       },
       {
         "pedido_id": "P055",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "motivo": "R6 + R2: o cliente só recebe VUC, mas o pedido pesa 4.511 kg, acima dos 3.000 kg do VUC. Nenhum fracionado entrega com VUC."
       }
     ],
-    "resumo": "Resultado provisório — será substituído por uma execução real do Claude."
+    "resumo": "Os pedidos que vencem em 01/12 (RJ) e 02/12 (RS) exigiram T3, e seus veículos foram completados com cargas das mesmas cidades. O restante foi em carretas cheias da T1 (RJ) e da T2 (RS), as mais baratas de cada UF, e só o excedente e os pedidos com restrição de veículo foram para o fracionado mais barato que cumpre prazo e veículo. Custo estimado: RJ R$ 13.760 + RS R$ 32.770 = R$ 46.530. P042 e P055 ficaram sem alocação porque exigem VUC e pesam mais que a capacidade dele."
   },
   "salvo": false
 }

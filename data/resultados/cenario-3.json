@@ -6,131 +6,160 @@
     "origem": "cenario",
     "cenario_id": "cenario-3",
     "n_pedidos": 25,
-    "n_envios": 0,
-    "paletes_total": 0,
-    "custo_total": 0,
-    "custo_referencia": 0,
-    "saving_pct": 0,
-    "custo_por_palete": 0,
-    "ocupacao_media": 0,
+    "n_envios": 8,
+    "paletes_total": 89,
+    "custo_total": 27830,
+    "custo_referencia": 60250,
+    "saving_pct": 53.8,
+    "custo_por_palete": 312.7,
+    "ocupacao_media": 87,
     "mix_veiculos": {
       "VUC": 0,
-      "Toco": 0,
-      "Truck": 0,
-      "Carreta": 0,
-      "Fracionado": 0
+      "Toco": 1,
+      "Truck": 2,
+      "Carreta": 1,
+      "Fracionado": 8
     },
     "custo_por_transportadora": {
-      "T1": 0,
-      "T2": 0,
-      "T3": 0
+      "T1": 1260,
+      "T2": 6580,
+      "T3": 19990
     },
     "n_violacoes": 0,
     "violacoes": [],
-    "envios": [],
-    "nao_alocados": [
+    "envios": [
       {
-        "pedido_id": "P001",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "modalidade": "lotacao",
+        "transportadora": "T3",
+        "veiculo": "Truck",
+        "uf": "RJ",
+        "pedidos": [
+          "P014",
+          "P009",
+          "P021",
+          "P019"
+        ],
+        "justificativa": "P009 e P014 vencem em 24/11 e só a lotação da T3 (prazo 1 dia) chega a tempo. Juntos somam 6.354 kg e não cabem num Toco (6.000 kg); a T3 não tem VUC+Toco mais barato que o Truck (R$ 4.000 contra R$ 2.950). P009 aceita no máximo Truck, então Carreta não é opção. O Truck foi completado com P021 e P019: 11.917 kg de 12.000 e 14 paletes de 18. Essa combinação dá o máximo de paletes possível nos 5.646 kg livres. Custo: R$ 2.950 + 2 paradas × R$ 150 = R$ 3.250 (3 cidades).",
+        "peso_kg": 11917,
+        "paletes": 14,
+        "ocupacao_kg": 99,
+        "custo": 3250
       },
       {
-        "pedido_id": "P002",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "modalidade": "lotacao",
+        "transportadora": "T2",
+        "veiculo": "Carreta",
+        "uf": "RJ",
+        "pedidos": [
+          "P011",
+          "P018",
+          "P006",
+          "P002",
+          "P010",
+          "P020",
+          "P023"
+        ],
+        "justificativa": "Leva os pedidos sem restrição de veículo: 23.657 kg e 28/28 paletes, em 4 cidades. Chega em 25/11, dentro do prazo de todos, inclusive P011 (limite 25/11) e P010 (limite 26/11). Inclui P002 e P006, que exigem lotação. Custo: R$ 3.600 + 3 × R$ 200 = R$ 4.200 (R$ 150 por palete). A mesma rota na T3 sairia R$ 4.400. A T1 não tem Carreta livre, e 2 Trucks T1 custariam R$ 5.100 ou mais. Mandar esses 28 paletes em fracionado (R$ 210 a R$ 260 por palete) custaria mais de R$ 5.800.",
+        "peso_kg": 23657,
+        "paletes": 28,
+        "ocupacao_kg": 88,
+        "custo": 4200
       },
       {
-        "pedido_id": "P003",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "modalidade": "fracionado",
+        "transportadora": "T3",
+        "veiculo": null,
+        "uf": "RJ",
+        "pedidos": [
+          "P013",
+          "P004"
+        ],
+        "justificativa": "P013 e P004 aceitam no máximo Toco. Juntos somam 6.394 kg e não cabem num único Toco. O fracionado T3 entrega com Toco e chega em 25/11, dentro dos limites de 26/11 e 28/11. Custo: P013 5 × R$ 260 = R$ 1.300 e P004 3 × R$ 260 = R$ 780, total R$ 2.080 (8 de 10 paletes livres). Alternativas mais caras: Toco T1 para P013 (R$ 1.950) e VUC T1 para P004 (R$ 1.450). Os fracionados T1 (entrega em Truck) e T2 (entrega em Carreta) violam R6.",
+        "peso_kg": 6394,
+        "paletes": 8,
+        "ocupacao_kg": null,
+        "custo": 2080
       },
       {
-        "pedido_id": "P004",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "modalidade": "fracionado",
+        "transportadora": "T1",
+        "veiculo": null,
+        "uf": "RJ",
+        "pedidos": [
+          "P024",
+          "P015"
+        ],
+        "justificativa": "São o excedente de 6 paletes depois que o Truck T3 (limitado por peso) e a Carreta T2 (28 paletes) ficaram cheios. P024 aceita no máximo Truck, e o fracionado T1 entrega com Truck, chegando em 26/11 (limite 28/11). Custo: P024 R$ 840 + P015 R$ 420 = R$ 1.260, a R$ 210 por palete, a tarifa fracionada mais barata. Fica abaixo de T3 (R$ 1.560) e de um Toco/VUC extra (R$ 1.450 a R$ 1.950). Usa 6 de 10 paletes livres.",
+        "peso_kg": 5102,
+        "paletes": 6,
+        "ocupacao_kg": null,
+        "custo": 1260
       },
       {
-        "pedido_id": "P005",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "modalidade": "lotacao",
+        "transportadora": "T3",
+        "veiculo": "Toco",
+        "uf": "RS",
+        "pedidos": [
+          "P017"
+        ],
+        "justificativa": "P017 vence em 25/11 e só a lotação T3 (prazo 2 dias) chega a tempo; o fracionado T3 só chegaria em 26/11. A restrição do cliente é Toco e a carga tem 4.474 kg, então não cabe em VUC. Nenhum outro pedido cabe nos 1.526 kg restantes: P022 tem 1.726 kg e P008 tem 1.721 kg. Custo: R$ 4.800.",
+        "peso_kg": 4474,
+        "paletes": 5,
+        "ocupacao_kg": 75,
+        "custo": 4800
       },
       {
-        "pedido_id": "P006",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "modalidade": "lotacao",
+        "transportadora": "T3",
+        "veiculo": "Truck",
+        "uf": "RS",
+        "pedidos": [
+          "P016",
+          "P005",
+          "P012",
+          "P008",
+          "P022"
+        ],
+        "justificativa": "P005, P012 e P016 vencem em 25/11 e só a lotação T3 atende. Juntos somam 6.851 kg: não cabem num Toco, e Toco + VUC custaria R$ 8.500 contra R$ 6.200 do Truck. O Truck também leva P022, que exige lotação e sozinho custaria pelo menos R$ 3.100 num VUC T2, e P008, poupando R$ 840 de fracionado T3. Carga: 10.298 kg e 13 paletes, em 3 cidades. Custo: R$ 6.200 + 2 × R$ 150 = R$ 6.500.",
+        "peso_kg": 10298,
+        "paletes": 13,
+        "ocupacao_kg": 86,
+        "custo": 6500
       },
       {
-        "pedido_id": "P007",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "modalidade": "fracionado",
+        "transportadora": "T3",
+        "veiculo": null,
+        "uf": "RS",
+        "pedidos": [
+          "P001",
+          "P025"
+        ],
+        "justificativa": "P001 (máximo Toco, limite 27/11) e P025 (limite 27/11) só cumprem prazo e restrição no fracionado T3: entrega com Toco, chegada em 26/11. Os fracionados T1 e T2 chegam depois de 27/11. Custo: P001 R$ 1.260 + P025 R$ 2.100 = R$ 3.360, usando os 8 paletes livres. Alternativas descartadas: P001 + P025 somam 6.053 kg e não cabem num Toco; P025 num Toco T2 sairia R$ 4.100; o Truck T3 não comporta P025 junto com P022.",
+        "peso_kg": 6053,
+        "paletes": 8,
+        "ocupacao_kg": null,
+        "custo": 3360
       },
       {
-        "pedido_id": "P008",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P009",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P010",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P011",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P012",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P013",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P014",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P015",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P016",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P017",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P018",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P019",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P020",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P021",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P022",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P023",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P024",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
-      },
-      {
-        "pedido_id": "P025",
-        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+        "modalidade": "fracionado",
+        "transportadora": "T2",
+        "veiculo": null,
+        "uf": "RS",
+        "pedidos": [
+          "P003",
+          "P007"
+        ],
+        "justificativa": "Os limites são 30/11 e não há restrição de veículo. O fracionado T2 (R$ 340 por palete, chegada em 28/11) é o mais barato: P003 R$ 1.020 + P007 R$ 1.360 = R$ 2.380, usando 7 de 8 paletes. Comparações: T1 fracionado sairia R$ 2.730; um Truck T2 só para esses dois pedidos sairia R$ 5.500; nenhum dos dois cabe no espaço restante do Truck T3 (1.702 kg).",
+        "peso_kg": 5916,
+        "paletes": 7,
+        "ocupacao_kg": null,
+        "custo": 2380
       }
     ],
-    "resumo": "Resultado provisório — será substituído por uma execução real do Claude."
+    "nao_alocados": [],
+    "resumo": "Os pedidos com limite em 24/11 (RJ) e 25/11 (RS) exigem a lotação T3 e definiram o esqueleto do dia: um Truck T3 em cada UF e um Toco T3 para P017. No RJ, a Carreta T2 foi cheia com 28 paletes. O excedente e os pedidos com restrição de Toco foram para fracionado, porque a R$ 210 a R$ 260 por palete sai mais barato que um veículo extra. No RS, a frota cara levou ao uso do fracionado mais barato que cumpre prazo e restrição de veículo em cada pedido. Custo total estimado: R$ 27.830 (RJ R$ 10.790 + RS R$ 17.040), com todos os 25 pedidos alocados."
   },
   "salvo": false
 }

@@ -8,64 +8,26 @@
     "n_pedidos": 25,
     "n_envios": 7,
     "paletes_total": 87,
-    "custo_total": 23060,
+    "custo_total": 24330,
     "custo_referencia": 60750,
-    "saving_pct": 62,
-    "custo_por_palete": 265.06,
-    "ocupacao_media": 85,
+    "saving_pct": 60,
+    "custo_por_palete": 279.66,
+    "ocupacao_media": 88,
     "mix_veiculos": {
       "VUC": 1,
-      "Toco": 1,
+      "Toco": 2,
       "Truck": 1,
       "Carreta": 2,
-      "Fracionado": 2
+      "Fracionado": 1
     },
     "custo_por_transportadora": {
-      "T1": 7210,
-      "T2": 1700,
-      "T3": 14150
+      "T1": 5260,
+      "T2": 8720,
+      "T3": 10350
     },
     "n_violacoes": 0,
     "violacoes": [],
     "envios": [
-      {
-        "modalidade": "lotacao",
-        "transportadora": "T1",
-        "veiculo": "Carreta",
-        "uf": "RJ",
-        "pedidos": [
-          "P007",
-          "P013",
-          "P001",
-          "P010",
-          "P019",
-          "P012",
-          "P015",
-          "P004"
-        ],
-        "justificativa": "Rota Resende → Volta Redonda → Petrópolis (3 cidades): R$ 3.450 + 2×180 = R$ 3.810, com 26/28 paletes e 21.280/27.000 kg. Chega em 2 dias (18/11), o que atende o limite mais apertado, P019 (18/11). Alternativas avaliadas: 2 Trucks T1 custariam R$ 5.100 ou mais. Um Truck T1 com Volta Redonda (R$ 2.550) e o restante em fracionado custaria cerca de R$ 5.270, porque P019 só cumpre o prazo no fracionado T3 (R$ 1.040). Tirar Resende da rota (R$ 3.630) e mandar P007 em fracionado (R$ 420) daria R$ 4.050. A mesma Carreta na T2 custa R$ 3.600 + paradas, mais cara. Todos os pedidos da rota são sem restrição de veículo.",
-        "peso_kg": 21280,
-        "paletes": 26,
-        "ocupacao_kg": 79,
-        "custo": 3810
-      },
-      {
-        "modalidade": "lotacao",
-        "transportadora": "T3",
-        "veiculo": "Truck",
-        "uf": "RJ",
-        "pedidos": [
-          "P009",
-          "P002",
-          "P020",
-          "P006"
-        ],
-        "justificativa": "P009 tem limite em 17/11, e só a lotação T3 (prazo 1 dia) chega a tempo. Agrupar os 4 pedidos do Rio de Janeiro numa parada só (11.775/12.000 kg, 14/18 paletes) custa R$ 2.950. O Truck respeita a restrição 'Truck' de P006 e P020, e P002 exige carga dedicada. Alternativa avaliada: Toco T3 só com P009 e P002 (R$ 2.300) mais P020 em fracionado T3 (R$ 780) e P006 em fracionado T1 (R$ 1.050) somaria R$ 4.130.",
-        "peso_kg": 11775,
-        "paletes": 14,
-        "ocupacao_kg": 98,
-        "custo": 2950
-      },
       {
         "modalidade": "lotacao",
         "transportadora": "T3",
@@ -75,11 +37,49 @@
           "P003",
           "P021"
         ],
-        "justificativa": "P003 e P021 vencem em 17/11, e só a lotação T3 (1 dia) cumpre o prazo. P021 aceita no máximo Toco, e seus 3.415 kg não cabem num VUC. A rota Petrópolis → Niterói fica em R$ 2.300 + R$ 150 = R$ 2.450 (4.913 kg, 6 paletes). Alternativa avaliada: Toco só com P021 (R$ 2.300) e P003 no VUC T3 (R$ 1.700) somaria R$ 4.000. Colocar P003 no Truck do Rio estouraria os 12.000 kg.",
+        "justificativa": "P003 e P021 vencem em 17/11 (1 dia), prazo que só a lotação da T3 (1 dia) cumpre. P021 aceita no máximo Toco e pesa 3.415 kg, acima do limite de 3.000 kg do VUC, então precisa de Toco. Juntar P021 com P003 dá 4.913 kg e 6 paletes, dentro da capacidade do Toco (6.000 kg e 12 paletes). Custo: R$ 2.300 + R$ 150 de 1 parada extra = R$ 2.450. Nenhum outro pedido cabe nos 1.087 kg que sobram.",
         "peso_kg": 4913,
         "paletes": 6,
         "ocupacao_kg": 82,
         "custo": 2450
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T3",
+        "veiculo": "Truck",
+        "uf": "RJ",
+        "pedidos": [
+          "P009",
+          "P002",
+          "P006",
+          "P020"
+        ],
+        "justificativa": "P009 (prazo de 1 dia) obriga a usar a lotação da T3, então o Truck leva toda a carga do Rio de Janeiro: 11.775 kg e 14 paletes, dentro de 12.000 kg e 18 paletes. P006 e P020 aceitam no máximo Truck. P002 exige carga dedicada. É uma única cidade, então o custo é R$ 2.950. A alternativa VUC T3 só com P009 (R$ 1.700) mais Truck T1 com P002, P006 e P020 (R$ 2.550) somaria R$ 4.250. P003 não cabe neste Truck (passaria de 12.000 kg).",
+        "peso_kg": 11775,
+        "paletes": 14,
+        "ocupacao_kg": 98,
+        "custo": 2950
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T1",
+        "veiculo": "Carreta",
+        "uf": "RJ",
+        "pedidos": [
+          "P007",
+          "P001",
+          "P010",
+          "P013",
+          "P019",
+          "P004",
+          "P012",
+          "P015"
+        ],
+        "justificativa": "Rota Resende → Volta Redonda → Petrópolis com 21.280 kg e 26 paletes, dentro de 27.000 kg e 28 paletes. São 3 cidades, então o custo é R$ 3.450 + 2 × R$ 180 = R$ 3.810. Comparação com as outras transportadoras: a Carreta T2 sairia R$ 4.000 e a Carreta T3 R$ 4.250. Usar Truck T1 (R$ 2.550) mais o excedente de 8 ou mais paletes em fracionado custaria pelo menos R$ 4.230. O prazo de 2 dias da T1 atende P019, cujo limite é 18/11. P013 exige carga dedicada e vai em lotação.",
+        "peso_kg": 21280,
+        "paletes": 26,
+        "ocupacao_kg": 79,
+        "custo": 3810
       },
       {
         "modalidade": "lotacao",
@@ -89,7 +89,7 @@
         "pedidos": [
           "P016"
         ],
-        "justificativa": "P016 aceita no máximo VUC. Nenhum fracionado serve, porque as entregas são feitas em Truck, Carreta ou Toco. Também não há outro pedido que caiba nos 552 kg restantes do VUC. O VUC T1 custa R$ 1.450 contra R$ 1.700 da T3, e a T2 não opera VUC no RJ. Chega em 18/11, dentro do limite de 22/11.",
+        "justificativa": "P016 aceita no máximo VUC. O fracionado está descartado, porque os veículos de entrega são Truck, Carreta e Toco. A T2 não opera VUC. O VUC da T1 custa R$ 1.450 contra R$ 1.700 na T3. Nenhum outro pedido cabe nos 552 kg livres.",
         "peso_kg": 2448,
         "paletes": 3,
         "ocupacao_kg": 82,
@@ -98,23 +98,37 @@
       {
         "modalidade": "lotacao",
         "transportadora": "T3",
-        "veiculo": "Carreta",
+        "veiculo": "Toco",
         "uf": "RS",
         "pedidos": [
           "P024",
-          "P022",
+          "P023"
+        ],
+        "justificativa": "P024 vence em 18/11 (2 dias), prazo que só a lotação da T3 cumpre. Somar P023 a P024 dá 5.979 kg e 7 paletes, dentro de 6.000 kg e 12 paletes. P023 aceita no máximo Truck, então o Toco é permitido. Custo: R$ 4.800 + R$ 150 de parada extra = R$ 4.950. A alternativa VUC T3 só com P024 (R$ 3.700) mais P023 em fracionado T1 (R$ 1.950) somaria R$ 5.650. P023 não pode ir em Carreta nem no fracionado da T2, que entrega com Carreta.",
+        "peso_kg": 5979,
+        "paletes": 7,
+        "ocupacao_kg": 100,
+        "custo": 4950
+      },
+      {
+        "modalidade": "lotacao",
+        "transportadora": "T2",
+        "veiculo": "Carreta",
+        "uf": "RS",
+        "pedidos": [
           "P017",
-          "P014",
-          "P011",
           "P005",
-          "P025",
+          "P008",
+          "P011",
+          "P014",
+          "P022",
           "P018"
         ],
-        "justificativa": "P024 vence em 18/11, e só a lotação T3 (2 dias) chega a tempo. A rota aproveita esse veículo obrigatório: Caxias do Sul → Canoas → Porto Alegre → Santa Maria (4 cidades) por R$ 8.300 + 3×150 = R$ 8.750, com 28/28 paletes e 23.109 kg. Comparações: VUC T3 só com P024 (R$ 3.700) mais Carreta T2 para o restante (R$ 7.700) e fracionados (R$ 1.020 + R$ 1.950) daria R$ 14.370. Truck T3 com P024, P022, P023 e P017 (R$ 6.500) mais Carreta T2 (R$ 7.300) daria R$ 13.800. Já a solução escolhida, somando os fracionados, fica em R$ 12.400. P005 exige carga dedicada e foi incluído aqui.",
-        "peso_kg": 23109,
+        "justificativa": "Rota Canoas → Porto Alegre → Caxias do Sul → Santa Maria com 23.395 kg e 28 paletes, ocupação total. São 4 cidades, então o custo é R$ 7.100 + 3 × R$ 200 = R$ 7.700. A T2 tem a Carreta mais barata no RS (T1 R$ 7.600, T3 R$ 8.300). O prazo de 3 dias da T2 atende P017, que vence em 19/11; a T1, com prazo de 4 dias, não atenderia. Tirar P025 (3 paletes) da Carreta e mandá-lo em fracionado custa R$ 7.700 + R$ 1.020 = R$ 8.720. Essa opção bate as alternativas de R$ 8.760 (Carreta com 3 cidades e P017 em fracionado T3 por R$ 1.260) e de R$ 8.860 (P018 ou P022 em fracionado). P005 exige carga dedicada e vai em lotação.",
+        "peso_kg": 23395,
         "paletes": 28,
-        "ocupacao_kg": 86,
-        "custo": 8750
+        "ocupacao_kg": 87,
+        "custo": 7700
       },
       {
         "modalidade": "fracionado",
@@ -122,31 +136,17 @@
         "veiculo": null,
         "uf": "RS",
         "pedidos": [
-          "P008"
+          "P025"
         ],
-        "justificativa": "P008 é o excedente da Carreta (5 paletes). O fracionado T2 custa 5×340 = R$ 1.700 e chega em 21/11, dentro do limite de 23/11. A entrega em Carreta é permitida porque o pedido não tem restrição. Ocupa 5 dos 8 paletes de espaço da T2. É a tarifa por palete mais barata: na T1 seriam R$ 1.950 e na T3 R$ 2.100.",
-        "peso_kg": 4284,
-        "paletes": 5,
+        "justificativa": "P025 tem 3 paletes e prazo até 23/11 (7 dias). O fracionado da T2 (prazo de 5 dias) custa 3 × R$ 340 = R$ 1.020, contra R$ 1.170 na T1 e R$ 1.260 na T3. P025 não tem restrição de veículo, então a entrega em Carreta é permitida. O espaço fracionado usado da T2 no RS fica em 3 de 8 paletes. Tirar P025 da Carreta abriu espaço para incluir Santa Maria na rota.",
+        "peso_kg": 2296,
+        "paletes": 3,
         "ocupacao_kg": null,
-        "custo": 1700
-      },
-      {
-        "modalidade": "fracionado",
-        "transportadora": "T1",
-        "veiculo": null,
-        "uf": "RS",
-        "pedidos": [
-          "P023"
-        ],
-        "justificativa": "P023 aceita no máximo Truck, então não pode ir na Carreta T3 nem no fracionado T2, que entrega em Carreta. O fracionado T1 (entrega em Truck) custa 5×390 = R$ 1.950 e chega em 22/11, exatamente no limite. Ocupa 5 dos 8 paletes disponíveis. Alternativas avaliadas: fracionado T3 por R$ 2.100, ou lotação dedicada a partir de R$ 3.100 (VUC T2).",
-        "peso_kg": 4277,
-        "paletes": 5,
-        "ocupacao_kg": null,
-        "custo": 1950
+        "custo": 1020
       }
     ],
     "nao_alocados": [],
-    "resumo": "No RJ, os pedidos com limite em 17/11 forçam o uso da lotação T3. Por isso, o Rio de Janeiro foi agrupado num Truck T3 e Niterói/Petrópolis num Toco T3, enquanto o restante seguiu numa Carreta T1 de 3 paradas e P016 num VUC T1. O total do RJ é R$ 10.660, sem nenhum fracionado. No RS, o P024 exige a Carreta T3, que foi lotada (28 paletes), e o excedente foi em fracionado: P008 pela T2 e P023 pela T1 (restrição Truck), somando R$ 12.400. Custo total estimado do dia: R$ 23.060, com todos os 25 pedidos alocados dentro de capacidade, prazo, restrições e disponibilidade."
+    "resumo": "Os pedidos com prazo de 1 dia no RJ (P003, P009, P021) e de 2 dias no RS (P024) obrigaram o uso da lotação da T3. Nesses veículos, a carga foi completada com pedidos compatíveis: toda a carga do Rio de Janeiro no Truck e P023 no Toco do RS. O restante foi consolidado em Carretas cheias: T1 no RJ e T2 no RS, esta com 28 paletes. P016 seguiu em VUC por restrição do cliente, e apenas P025 foi em fracionado (T2), porque isso liberou espaço na Carreta. Custo total estimado: R$ 24.330 (RJ R$ 10.660 + RS R$ 13.670), com todos os 25 pedidos alocados e todas as regras atendidas."
   },
   "salvo": false
 }

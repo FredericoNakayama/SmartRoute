@@ -1,1 +1,212 @@
-{}
+{
+  "6|5": {
+    "explicacao": "A roteirização A (Semana 06) custou R$ 36.920, R$ 9.530 a mais que a B (Semana 05, R$ 27.390), uma alta de cerca de 35%. Isso ocorreu mesmo com volume parecido: 30 pedidos em ambas e até 2 paletes a menos em A (106 contra 108). Por isso, o custo por palete subiu de R$ 253,61 para R$ 348,30 (+37%), e o saving sobre a referência caiu de 62,7% para 50,9%. A referência de A (R$ 75.200) é só um pouco maior que a de B (R$ 73.350), então a diferença vem principalmente da forma de roteirizar, imposta pelas restrições.\n\nO fator central foi o grande número de clientes com restrição de veículo em A. A carga ficou pulverizada em 12 envios, contra 8 em B. O mix de A teve 3 VUCs, 3 Tocos, 2 Carretas e 7 fracionados. B concentrou a carga em 3 Carretas, 1 Truck, 1 VUC e 5 fracionados. Com menos Carretas e mais veículos pequenos e fracionados, cada palete fica mais caro, ainda que a ocupação média de A (86%) tenha sido levemente maior que a de B (84%).\n\nA dependência da T3 explica a maior parte da diferença. Em A, a T3 faturou R$ 21.980, contra R$ 9.960 em B (+R$ 12.020). Ela foi a única opção de prazo para o P004 no RS e para os pedidos de 08/09 no RJ, entregues em VUCs. Já a T1 (R$ 9.120 contra R$ 9.730) e a T2 (R$ 5.820 contra R$ 7.700) custaram menos em A, o que compensou apenas parte do aumento. Por região, o RJ subiu de R$ 10.250 para R$ 14.340 (+R$ 4.090) e o RS de R$ 17.140 para R$ 22.580 (+R$ 5.440).\n\nNenhuma das duas teve violações. A deixou 2 pedidos sem alocação (P028 e P026), contra 1 em B (P009), sempre por peso acima do limite do VUC aceito pelo cliente. Sem esses pedidos, A transportou um pouco menos carga, o que reduziu levemente seu custo. Mesmo assim, se eles tivessem sido atendidos, o custo de A seria ainda maior.",
+    "fatores": [
+      {
+        "fator": "Restrições de veículo dos clientes",
+        "impacto": "aumentou",
+        "detalhe": "Na Semana 06, muitos clientes só aceitavam VUC ou Toco. Isso forçou 3 VUCs e 3 Tocos em A, contra 1 VUC e nenhum Toco em B."
+      },
+      {
+        "fator": "Menor consolidação em Carretas",
+        "impacto": "aumentou",
+        "detalhe": "A usou 2 Carretas, contra 3 em B, perdendo economia de escala."
+      },
+      {
+        "fator": "Mais envios e mais fracionado",
+        "impacto": "aumentou",
+        "detalhe": "A teve 12 envios, com 7 fracionados. B teve 8 envios, com 5 fracionados."
+      },
+      {
+        "fator": "Concentração na transportadora T3 por prazo",
+        "impacto": "aumentou",
+        "detalhe": "A T3 custou R$ 21.980 em A contra R$ 9.960 em B (+R$ 12.020). Foi obrigatória para o P004 no RS e para os pedidos com prazo em 08/09 no RJ."
+      },
+      {
+        "fator": "Custo por palete",
+        "impacto": "aumentou",
+        "detalhe": "Subiu de R$ 253,61 para R$ 348,30 (+37%), com volume quase igual (106 contra 108 paletes)."
+      },
+      {
+        "fator": "Menor gasto com T1 e T2",
+        "impacto": "reduziu",
+        "detalhe": "A T1 ficou R$ 610 mais barata e a T2 R$ 1.880 mais barata em A, compensando parte da alta da T3."
+      },
+      {
+        "fator": "Ocupação média ligeiramente maior",
+        "impacto": "reduziu",
+        "detalhe": "86% em A contra 84% em B, um efeito pequeno diante da fragmentação da carga."
+      },
+      {
+        "fator": "Pedidos não alocados",
+        "impacto": "reduziu",
+        "detalhe": "A deixou P028 e P026 fora (2 pedidos), contra apenas P009 em B. Com menos carga transportada, o custo de A ficou um pouco menor."
+      }
+    ]
+  },
+  "4|3": {
+    "explicacao": "A Roteirização A (Semana 04, pico de pedidos) custou R$ 41.060, ou seja, R$ 9.450 a mais que a B (Semana 03, R$ 31.610), um aumento de cerca de 30%. Essa diferença vem quase toda do volume. A teve 55 pedidos e 173 paletes, contra 30 pedidos e 101 paletes em B, o que representa 71% mais paletes. Também exigiu 11 envios, contra 8. O custo total subiu bem menos que o volume.\n\nA escala trouxe ganho de eficiência. O custo por palete caiu de R$ 312,97 em B para R$ 237,34 em A, cerca de 24% menor. Com mais carga, A consolidou 5 Carretas cheias da T1 (RJ) e da T2 (RS), contra apenas 2 em B. Essas Carretas custam cerca de R$ 125 a R$ 275 por palete, contra R$ 210 a R$ 420 no fracionado. O fracionado caiu de 6 para 4 envios. A ocupação média ficou igual (90%) nas duas, então o ganho veio do tipo de veículo, e não do aproveitamento.\n\nA distribuição entre transportadoras confirma isso. Em B, a T3, que é a lotação cara usada por causa do prazo, concentrou R$ 23.870 dos R$ 31.610 (76%). Em A, a T3 caiu para R$ 20,820 (51%), e o volume extra foi para a T1 (R$ 10.840, contra R$ 1.260 em B) e para a T2 (R$ 9.400, contra R$ 6.480). No RS, A custou até menos que B (R$ 21.850 contra R$ 24.100), mesmo com mais carga. O aumento ficou concentrado no RJ (R$ 19.210 contra R$ 7.510). O saving sobre a referência também foi maior em A: 66,8% contra 62%.\n\nNenhuma das duas teve violações. Porém, A deixou o pedido P044 sem alocação: ele pesa 4.682 kg e o cliente só recebe VUC, que tem limite de 3.000 kg. Isso reduziu marginalmente o custo de A, mas é uma pendência operacional que B não teve, já que lá todos os 30 pedidos foram alocados.",
+    "fatores": [
+      {
+        "fator": "Volume de pedidos e paletes",
+        "impacto": "aumentou",
+        "detalhe": "55 pedidos e 173 paletes em A contra 30 pedidos e 101 paletes em B (+71% de paletes), principal causa dos R$ 9.450 a mais."
+      },
+      {
+        "fator": "Número de envios",
+        "impacto": "aumentou",
+        "detalhe": "11 envios em A contra 8 em B; mais veículos contratados, com aumento no RJ de R$ 7.510 para R$ 19.210."
+      },
+      {
+        "fator": "Consolidação em Carretas",
+        "impacto": "reduziu",
+        "detalhe": "5 Carretas em A contra 2 em B, a cerca de R$ 125 a R$ 275 por palete; custo por palete caiu de R$ 312,97 para R$ 237,34."
+      },
+      {
+        "fator": "Menor uso de fracionado",
+        "impacto": "reduziu",
+        "detalhe": "4 fracionados em A contra 6 em B; o fracionado custa cerca de R$ 210 a R$ 420 por palete."
+      },
+      {
+        "fator": "Menor dependência da T3",
+        "impacto": "reduziu",
+        "detalhe": "T3 caiu de R$ 23.870 (76% do custo de B) para R$ 20.820 (51% de A), com o volume deslocado para T1 (R$ 10.840) e T2 (R$ 9.400)."
+      },
+      {
+        "fator": "Pedido não alocado (P044)",
+        "impacto": "reduziu",
+        "detalhe": "P044 (4.682 kg, cliente só recebe VUC de 3.000 kg) ficou fora de A, reduzindo levemente o custo, mas sem atendimento; B alocou todos os pedidos."
+      }
+    ]
+  },
+  "7|6": {
+    "explicacao": "A roteirização A (Semana 07, carretas indisponíveis) custou R$ 30.250, contra R$ 36.920 da B (Semana 06, muitos clientes com restrição). A diferença é de R$ 6.670, cerca de 18% a menos em A. O volume foi praticamente igual (104 paletes em A e 106 em B, com 30 pedidos em cada), então a diferença não vem da carga. O custo por palete caiu de R$ 348,30 para R$ 290,87 (−R$ 57,43, cerca de 16,5%). A ocupação média subiu de 86% para 91%. O saving sobre a referência também foi maior em A: 58,4% (R$ 72.800 de referência) contra 50,9% (R$ 75.200).\n\nA principal causa está no mix de veículos. A usou 10 envios contra 12 em B: 2 VUC, 1 Toco, 1 Truck, 2 Carretas e 6 fracionados. B precisou de 3 VUC, 3 Tocos, 2 Carretas e 7 fracionados, por causa do grande número de clientes restritos a veículos pequenos. No RJ, B usou 2 Tocos T1 e 2 VUCs T3 dedicados. A resolveu o RJ com duas carretas T3 cheias (28 paletes cada), um VUC T1 e fracionado. Com isso, o RJ ficou em R$ 10.950 em A contra R$ 14.340 em B. No RS, A consolidou os pedidos urgentes e os de Pelotas em um Truck T3 e mandou o restante no fracionado T2, o mais barato: R$ 19.300 contra R$ 22.580 em B. Em B, a urgência do P004 forçou o uso de uma Carreta T3.\n\nNas transportadoras, A gastou bem menos com a T1 (R$ 2.080 contra R$ 9.120) e com a T3 (R$ 18.730 contra R$ 21.980). Gastou mais com a T2 (R$ 9.440 contra R$ 5.820), porque usou mais o fracionado T2, mais barato, e um Toco T2. Nenhuma das duas teve violações. Há porém uma ressalva importante: B deixou 2 pedidos sem alocação (P028 e P026, restritos a VUC e com peso acima de 3.000 kg). Já A alocou os 30 pedidos. O custo de B, portanto, está subestimado, e a vantagem real de A tende a ser ainda maior que os R$ 6.670 apurados.",
+    "fatores": [
+      {
+        "fator": "Menos envios e veículos dedicados pequenos",
+        "impacto": "reduziu",
+        "detalhe": "A teve 10 envios contra 12 em B: 1 Toco contra 3 e 2 VUC contra 3, com menos cargas dedicadas por restrição de veículo."
+      },
+      {
+        "fator": "Consolidação em carretas e Truck cheios",
+        "impacto": "reduziu",
+        "detalhe": "Duas carretas T3 com 28 paletes cada no RJ e um Truck T3 no RS consolidando urgentes e Pelotas. A ocupação média ficou em 91% contra 86% em B."
+      },
+      {
+        "fator": "Custo por palete",
+        "impacto": "reduziu",
+        "detalhe": "R$ 290,87 em A contra R$ 348,30 em B, com volume quase igual (104 contra 106 paletes)."
+      },
+      {
+        "fator": "Menor uso de fracionado",
+        "impacto": "reduziu",
+        "detalhe": "A usou 6 fracionados contra 7 em B."
+      },
+      {
+        "fator": "Gasto com T1 e T3",
+        "impacto": "reduziu",
+        "detalhe": "T1: R$ 2.080 contra R$ 9.120 (−R$ 7.040). T3: R$ 18.730 contra R$ 21.980 (−R$ 3.250). B dependeu de Tocos e Carreta T1 e de VUCs T3."
+      },
+      {
+        "fator": "Maior uso da T2",
+        "impacto": "aumentou",
+        "detalhe": "T2: R$ 9.440 em A contra R$ 5.820 em B (+R$ 3.620), pelo Toco T2 dedicado ao P010 e pelo volume maior no fracionado T2."
+      },
+      {
+        "fator": "Uso de Truck",
+        "impacto": "aumentou",
+        "detalhe": "A usou 1 Truck T3, que B não usou. Ele foi necessário para cumprir o prazo de 16/09 no RS, embora tenha permitido consolidar cargas."
+      },
+      {
+        "fator": "Alocação completa dos pedidos",
+        "impacto": "aumentou",
+        "detalhe": "A alocou os 30 pedidos. B deixou P028 e P026 fora (restrição VUC com mais de 3.000 kg), então seu custo não inclui esses fretes."
+      }
+    ]
+  },
+  "8|7": {
+    "explicacao": "A roteirização A (Semana 08) custou R$ 46.770, R$ 16.520 a mais que a B (Semana 07, R$ 30.250), uma alta de cerca de 54,6%. Essa diferença vem do volume, e não de ineficiência. A atendeu 50 pedidos e 176 paletes, contra 30 pedidos e 104 paletes em B, ou seja, 69% a mais de carga. Se A tivesse o mesmo custo por palete de B (R$ 290,87), teria custado cerca de R$ 51.190. O volume adicional explica, sozinho, aproximadamente R$ 20.940 de aumento.\n\nPor outro lado, A foi mais eficiente por unidade: o custo por palete caiu de R$ 290,87 para R$ 265,74 (−8,6%), o que economizou cerca de R$ 4.420 frente ao custo de B. O principal motivo é o mix de veículos. A usou 5 carretas, o veículo com menor custo por palete, enquanto B teve apenas 2, porque havia carretas indisponíveis naquela semana. O fracionado também caiu de 6 para 4 usos. A economia sobre o custo de referência foi maior em A (67,1%, sobre R$ 142.300) do que em B (58,4%, sobre R$ 72.800). VUC (2), Toco (1) e Truck (1) foram iguais nas duas semanas, para atender as restrições de veículo dos pedidos.\n\nA distribuição entre transportadoras reforça essa leitura. Em B, a T3, mais cara e usada pela urgência de prazo, concentrou R$ 18.730 (62% do total), com duas carretas no RJ por causa do P004 e um Truck no RS. Em A, a T3 ficou restrita a P017, P026 e aos pedidos do RS com limite em 23/09, somando R$ 14.300 (31%). Já a T2 subiu de R$ 9.440 para R$ 25.440 e a T1 de R$ 2.080 para R$ 7.030, absorvendo o volume a custos menores. Por região, o RS concentrou o aumento (R$ 34.190 contra R$ 19.300), coerente com o rótulo de pico com mais RS. O RJ variou pouco (R$ 12.580 contra R$ 10.950).\n\nUm ponto contra A foi a ocupação média, um pouco menor (86% contra 91%), indicando algum espaço ocioso nos veículos dedicados. Ainda assim, isso não impediu o ganho de custo por palete. Nenhuma das duas roteirizações teve violações ou pedidos não alocados, com 11 envios em A e 10 em B. Em resumo, A custou mais porque transportou muito mais carga, mas fez isso de forma mais barata por palete.",
+    "fatores": [
+      {
+        "fator": "Volume de pedidos e paletes",
+        "impacto": "aumentou",
+        "detalhe": "50 pedidos e 176 paletes em A contra 30 e 104 em B (+69% de paletes), o que representa cerca de R$ 20.940 a mais ao custo por palete de B."
+      },
+      {
+        "fator": "Maior uso de carretas",
+        "impacto": "reduziu",
+        "detalhe": "5 carretas em A contra 2 em B (carretas indisponíveis na semana 07), diluindo o custo por palete."
+      },
+      {
+        "fator": "Custo por palete menor",
+        "impacto": "reduziu",
+        "detalhe": "R$ 265,74 em A contra R$ 290,87 em B (−8,6%), uma economia aproximada de R$ 4.420 sobre o volume de A."
+      },
+      {
+        "fator": "Menor dependência da T3 (urgência)",
+        "impacto": "reduziu",
+        "detalhe": "A T3 representou R$ 14.300 (31%) em A contra R$ 18.730 (62%) em B; o volume migrou para T2 (R$ 25.440) e T1 (R$ 7.030)."
+      },
+      {
+        "fator": "Menor uso de fracionado",
+        "impacto": "reduziu",
+        "detalhe": "4 usos de fracionado em A contra 6 em B, priorizando cargas dedicadas lotadas."
+      },
+      {
+        "fator": "Maior peso do RS",
+        "impacto": "aumentou",
+        "detalhe": "Custo no RS de R$ 34.190 em A contra R$ 19.300 em B; o RJ variou pouco (R$ 12.580 contra R$ 10.950)."
+      },
+      {
+        "fator": "Ocupação média menor",
+        "impacto": "aumentou",
+        "detalhe": "86% em A contra 91% em B, com algum espaço ocioso nos veículos, embora compensado pelo mix mais eficiente."
+      }
+    ]
+  },
+  "10|9": {
+    "explicacao": "A roteirização A (Semana 10) custou R$ 24.340, ou seja, R$ 4.320 (cerca de 15%) a menos que a B (Semana 09, R$ 28.660). A diferença vem do volume: A movimentou só 50 paletes, contra 105 em B, com o mesmo número de pedidos (30). Em termos unitários, A foi bem menos eficiente: R$ 486,80 por palete contra R$ 272,95 em B, cerca de 78% a mais. O saving sobre a referência também foi um pouco menor (64,3% contra 65,2%).\n\nO custo unitário alto de A vem do mix de veículos. Os pedidos pequenos e as restrições de acesso exigiram 4 VUCs, 1 Truck, 1 Carreta e 1 fracionado, em 7 envios. B fez 6 envios com 3 Carretas, 1 Truck, 1 Toco e 1 fracionado. Veículos pequenos diluem pior o custo fixo do frete, e a ocupação média de A ficou em 83%, contra 86% em B. No RS, A pagou R$ 18.130 em cinco envios para poucos paletes. Isso incluiu duas VUCs T3 de R$ 3.850 cada, uma VUC T2 de R$ 3.100 e um Truck T3 de R$ 6.650.\n\nNa divisão por transportadora, A dependeu mais da T3, a lotação cara usada por causa dos prazos de 1 e 2 dias: R$ 18.750 contra R$ 17.170 em B (+R$ 1.580). Em compensação, gastou bem menos com T1 (R$ 1.810 contra R$ 3.990) e T2 (R$ 3.780 contra R$ 7.500). Isso reflete a ausência de carretas T1/T2 de grande volume, que B usou para escoar seus 105 paletes. Em ambas o fracionado foi usado uma única vez: R$ 680 na T2 em A e R$ 520 na T3 em B.\n\nNenhuma das duas teve violações, mas A alocou todos os 30 pedidos. Em B, o pedido P024 (3.706 kg) ficou fora porque o cliente só recebe VUC e o peso passa do limite de 3.000 kg. Portanto, o custo de B não inclui uma entrega que ainda precisaria ser resolvida. Em resumo, A foi mais barata no total por transportar menos da metade dos paletes, mas foi muito mais cara por palete devido às VUCs, ao maior número de envios e à concentração na T3.",
+    "fatores": [
+      {
+        "fator": "Volume transportado",
+        "impacto": "reduziu",
+        "detalhe": "A movimentou 50 paletes contra 105 em B, com o mesmo número de pedidos (30), o que baixou o custo total em R$ 4.320."
+      },
+      {
+        "fator": "Mix com veículos pequenos (VUC)",
+        "impacto": "aumentou",
+        "detalhe": "A usou 4 VUCs (R$ 1.810 a R$ 3.850 cada) por restrições de clientes, elevando o custo por palete para R$ 486,80 contra R$ 272,95 em B."
+      },
+      {
+        "fator": "Menos carretas de grande volume",
+        "impacto": "reduziu",
+        "detalhe": "A usou 1 Carreta (R$ 4.400) contra 3 em B (R$ 3.990, R$ 8.600 e R$ 7.500), reduzindo o desembolso absoluto."
+      },
+      {
+        "fator": "Número de envios e ocupação",
+        "impacto": "aumentou",
+        "detalhe": "A teve 7 envios contra 6 em B e ocupação média de 83% contra 86%, diluindo pior o custo fixo dos veículos."
+      },
+      {
+        "fator": "Dependência da T3 (prazos curtos)",
+        "impacto": "aumentou",
+        "detalhe": "Os prazos de 1 dia no RJ e 2 dias no RS levaram A a gastar R$ 18.750 com a T3, contra R$ 17.170 em B (+R$ 1.580)."
+      },
+      {
+        "fator": "Gasto com T1 e T2",
+        "impacto": "reduziu",
+        "detalhe": "A gastou R$ 1.810 com a T1 e R$ 3.780 com a T2, contra R$ 3.990 e R$ 7.500 em B (−R$ 5.900 somados)."
+      },
+      {
+        "fator": "Alocação completa dos pedidos",
+        "impacto": "aumentou",
+        "detalhe": "A alocou todos os 30 pedidos. B deixou o P024 (3.706 kg, cliente só VUC) sem entrega, sem custo incluído no total."
+      },
+      {
+        "fator": "Fracionado",
+        "impacto": "aumentou",
+        "detalhe": "Ambas usaram 1 fracionado, mas o de A (P010 na T2) custou R$ 680 contra R$ 520 da T3 em B, efeito marginal de +R$ 160."
+      }
+    ]
+  }
+}

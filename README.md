@@ -2,9 +2,13 @@
 
 Um agente de IA (Claude) decide **como enviar cada carga de café pelo menor custo**, comparando transportadoras, tipos de veículo e as modalidades **lotação (FTL)** e **fracionado (LTL)**, seguindo uma **spec de regras de negócio**. Um validador em código confere cada regra depois da resposta da IA.
 
-🔗 **Demo:** _link da Vercel aqui_ · Dados 100% fictícios.
+🔗 **Demo:** _link da Vercel aqui_ · Atalho para ver um resultado direto: `/?cenario=cenario-1` · Dados 100% fictícios.
 
-<!-- prints: docs/prints/*.png -->
+| Roteirizador | Dashboard |
+|---|---|
+| ![Roteirizador](docs/prints/roteirizador.png) | ![Dashboard](docs/prints/dashboard.png) |
+| **Spec de regras** | **O caso real** |
+| ![Spec](docs/prints/spec.png) | ![Caso](docs/prints/caso.png) |
 
 ## Por que este projeto existe
 
