@@ -6,17 +6,7 @@ import { salvarRegistro } from "../lib/mockapi.js";
 import { permitir } from "../lib/rateLimit.js";
 import { lerJson, ipDe, lerCorpo } from "../lib/arquivos.js";
 
-const VEICULOS = ["", "VUC", "Toco", "Truck", "Carreta"];
-
-function pedidoValido(p, cidades) {
-  return (
-    p && typeof p.id === "string" && p.id &&
-    ["RJ", "RS"].includes(p.uf) && cidades.includes(`${p.cidade}-${p.uf}`) &&
-    p.peso_kg > 0 && Number.isInteger(p.paletes) && p.paletes > 0 &&
-    /^\d{4}-\d{2}-\d{2}$/.test(p.data_limite_entrega ?? "") &&
-    VEICULOS.includes(p.restricao_veiculo ?? "") && typeof p.aceita_fracionado === "boolean"
-  );
-}
+import { sanitizarPedido, sanitizarRotulo } from "../lib/pedidos.js";
 
 async function modoDemo(cenarioId, aviso) {
   if (cenarioId) {
@@ -45,11 +35,12 @@ export async function POST(request) {
     if (corpo.pedidos.length === 0 || corpo.pedidos.length > max_pedidos) {
       return Response.json({ erro: `Envie de 1 a ${max_pedidos} pedidos.` }, { status: 400 });
     }
-    if (!corpo.pedidos.every((p) => pedidoValido(p, dados.cidades))) {
+    const pedidos = corpo.pedidos.map((p) => sanitizarPedido(p, dados.cidades));
+    if (pedidos.includes(null)) {
       return Response.json({ erro: "Há pedidos com campos inválidos." }, { status: 400 });
     }
     const base = await lerJson("cenarios/cenario-1.json");
-    cenario = { ...base, id: "csv", rotulo: String(corpo.rotulo || "CSV enviado").slice(0, 80), pedidos: corpo.pedidos };
+    cenario = { ...base, id: "csv", rotulo: sanitizarRotulo(corpo.rotulo), pedidos };
   } else {
     return Response.json({ erro: "Informe um cenário ou uma lista de pedidos." }, { status: 400 });
   }

@@ -42,3 +42,9 @@ test("custoReferencia lista pedido grande demais sem gerar NaN", () => {
   assert.deepEqual(r.nao_atendiveis, ["X"]);
   assert.equal(r.custo, 1450);
 });
+
+test("custoReferencia usa fracionado quando nenhum veículo de lotação atende o cliente", () => {
+  // restrição Toco (12 paletes) com 14 paletes: só o fracionado da T3 (entrega com Toco) atende
+  const p = ped("A", "Niterói", "RJ", 14, { restricao_veiculo: "Toco" });
+  assert.deepEqual(custoReferencia([p], frota, transportadoras), { custo: 260 * 14, nao_atendiveis: [] });
+});

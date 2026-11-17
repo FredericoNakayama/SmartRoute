@@ -26,7 +26,7 @@ function cardEnvio(e, i, violacoes) {
   const titulo = fr ? `Fracionado (LTL)` : `Lotação (FTL) · ${esc(e.veiculo)}`;
   const problemas = violacoes.filter((v) => v.envio_index === i);
   const ocupacao = e.ocupacao_kg != null
-    ? `<div class="progress mt-2" style="height:6px" title="Ocupação por peso"><div class="progress-bar bg-success" style="width:${Math.min(100, e.ocupacao_kg)}%"></div></div>
+    ? `<div class="progress mt-2" style="height:6px" title="Ocupação por peso"><div class="progress-bar bg-success" style="width:${Math.min(100, Number(e.ocupacao_kg) || 0)}%"></div></div>
        <div class="small text-muted">${e.ocupacao_kg}% da capacidade de peso</div>`
     : "";
   return `
@@ -35,7 +35,7 @@ function cardEnvio(e, i, violacoes) {
         <div><div class="fw-semibold">${titulo} → ${esc(e.uf)}</div>
           <div class="small text-muted">${esc(nomeTransportadora(e.transportadora))} (${esc(e.transportadora)})</div></div>
         <div class="text-end"><div class="fw-bold">${e.custo == null ? "—" : brl(e.custo)}</div>
-          <div class="small text-muted">${e.paletes} pal · ${Number(e.peso_kg).toLocaleString("pt-BR")} kg</div></div>
+          <div class="small text-muted">${Number(e.paletes)} pal · ${Number(e.peso_kg).toLocaleString("pt-BR")} kg</div></div>
       </div>
       <div class="small mt-2"><i class="bi bi-box-seam"></i> ${e.pedidos.map(esc).join(", ")}</div>
       ${ocupacao}
@@ -59,8 +59,8 @@ export function painelResultado(r) {
       ${kpi("Custo da IA", brl(r.custo_total))}
       ${kpi("Sem otimização", brl(r.custo_referencia))}
       ${kpi("Saving", `${Number(r.saving_pct).toLocaleString("pt-BR")}%`, true)}
-      ${kpi("Envios", r.n_envios)}
-      ${kpi("Ocupação média", `${r.ocupacao_media}%`)}
+      ${kpi("Envios", Number(r.n_envios))}
+      ${kpi("Ocupação média", `${Number(r.ocupacao_media)}%`)}
     </div>
     <div class="card mb-3"><div class="card-body"><i class="bi bi-stars"></i> <strong>Resumo da IA:</strong> ${esc(r.resumo)}</div></div>
     ${violacoesHtml}

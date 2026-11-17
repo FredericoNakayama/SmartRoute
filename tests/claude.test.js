@@ -71,3 +71,12 @@ test("comparação envia os dois registros sem o detalhe dos envios", async () =
   assert.match(conteudo, /mix_veiculos/);
   assert.doesNotMatch(conteudo, /grande/);
 });
+
+test("cliente da demo não ultrapassa o tempo máximo da função na Vercel (300s)", async () => {
+  process.env.ANTHROPIC_API_KEY = "teste";
+  const { criarCliente } = await import("../lib/claude.js");
+  const c = criarCliente();
+  delete process.env.ANTHROPIC_API_KEY;
+  assert.equal(c.maxRetries, 0);
+  assert.ok(c.timeout <= 280_000);
+});

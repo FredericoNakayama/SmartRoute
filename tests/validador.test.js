@@ -93,3 +93,11 @@ test("veículo ou transportadora inexistente vira R5 sem quebrar", () => {
   assert.ok(regras(validar(res([lot(["A"], { veiculo: "Bitrem" })]), c, dados)).includes("R5_combinacao_invalida"));
   assert.ok(regras(validar(res([lot(["A"], { transportadora: "T9" })]), c, dados)).includes("R5_combinacao_invalida"));
 });
+
+test("id repetido no mesmo envio não soma peso duas vezes", () => {
+  const c = cen([ped("A", "Niterói", "RJ", 6)]);
+  const r = validar(res([lot(["A", "A"], { veiculo: "Toco" })]), c, dados);
+  assert.ok(regras(r).includes("R1_duplicado"));
+  assert.ok(!regras(r).includes("R2_capacidade_paletes"));
+  assert.equal(r.envios[0].paletes, 6);
+});

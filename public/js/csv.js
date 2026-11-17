@@ -15,15 +15,28 @@ const SIM = ["sim", "true", "1", "s"];
 const NAO = ["não", "nao", "false", "0", "n"];
 
 function numero(texto) {
-  const limpo = texto.trim().replace(/\./g, (m, i, s) => (s.includes(",") ? "" : m)).replace(",", ".");
-  return limpo === "" ? NaN : Number(limpo);
+  let t = texto.trim();
+  if (t.includes(",")) t = t.replace(/\./g, "").replace(",", "."); // 1.234,5 -> 1234.5
+  else if (/^\d{1,3}(\.\d{3})+$/.test(t)) t = t.replace(/\./g, ""); // 1.200 (milhar do Excel pt-BR) -> 1200
+  return t === "" ? NaN : Number(t);
 }
 
 function data(texto) {
   const t = texto.trim();
-  if (/^\d{4}-\d{2}-\d{2}$/.test(t)) return t;
-  const m = t.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  return m ? `${m[3]}-${m[2]}-${m[1]}` : null;
+  const br = t.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  const iso = br ? `${br[3]}-${br[2]}-${br[1]}` : t;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(iso)) return null;
+  const d = new Date(`${iso}T00:00:00Z`);
+  return !isNaN(d) && d.toISOString().slice(0, 10) === iso ? iso : null; // rejeita 31/02
+}
+
+/** Decodifica o arquivo: UTF-8 se for válido; senão Windows-1252 ("CSV separado por vírgulas" do Excel). */
+export function decodificarArquivo(buffer) {
+  try {
+    return new TextDecoder("utf-8", { fatal: true }).decode(buffer);
+  } catch {
+    return new TextDecoder("windows-1252").decode(buffer);
+  }
 }
 
 /**

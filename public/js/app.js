@@ -1,4 +1,4 @@
-import { parseCsvPedidos } from "./csv.js";
+import { parseCsvPedidos, decodificarArquivo } from "./csv.js";
 import { esc, painelResultado } from "./visual.js";
 
 const btn = document.getElementById("btn-roteirizar");
@@ -24,7 +24,7 @@ document.getElementById("arquivo").addEventListener("change", async (ev) => {
   const arquivo = ev.target.files[0];
   if (!arquivo) return;
   document.querySelectorAll(".card-cenario").forEach((c) => c.classList.remove("selecionado"));
-  const { pedidos, erros } = parseCsvPedidos(await arquivo.text());
+  const { pedidos, erros } = parseCsvPedidos(decodificarArquivo(await arquivo.arrayBuffer()));
 
   document.getElementById("csv-erros").innerHTML = erros.length
     ? `<div class="alert alert-danger"><strong>Corrija o arquivo antes de roteirizar:</strong><ul class="mb-0">${erros

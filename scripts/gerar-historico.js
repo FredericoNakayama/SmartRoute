@@ -36,10 +36,23 @@ function relatar(registro) {
   console.log(`✔ ${registro.rotulo}: ${registro.n_envios} envios, R$ ${registro.custo_total}, saving ${registro.saving_pct}%, violações: ${v}`);
 }
 
+/** Tenta até 2 vezes; em caso de falha registra o erro e devolve null (não perde o que já foi pago). */
+async function tentar(rotulo, fn) {
+  for (let tentativa = 1; tentativa <= 2; tentativa++) {
+    try {
+      return await fn();
+    } catch (e) {
+      console.warn(`✖ ${rotulo} (tentativa ${tentativa}): ${e.message}`);
+    }
+  }
+  return null;
+}
+
 // 1) Resultados de demonstração dos 3 cenários prontos
 const cenarios = ["cenario-1", "cenario-2", "cenario-3"].map((id) => lerCenario("cenarios", `${id}.json`));
 await emParalelo(cenarios, 2, async (cenario) => {
-  const registro = await executarRoteirizacao({ cenario, origem: "cenario" }, client, dados);
+  const registro = await tentar(cenario.rotulo, () => executarRoteirizacao({ cenario, origem: "cenario" }, client, dados));
+  if (!registro) return;
   salvarJson(`data/resultados/${cenario.id}.json`, { modo: "demo", registro, salvo: false });
   relatar(registro);
 });
@@ -54,28 +67,32 @@ if (args.has("--limpar-mockapi")) {
 }
 const semanas = readdirSync("data/semanas").sort().map((f) => lerCenario("semanas", f));
 const registros = await emParalelo(semanas, 2, async (cenario) => {
-  const registro = await executarRoteirizacao({ cenario, origem: "historico" }, client, dados);
-  relatar(registro);
+  const registro = await tentar(cenario.rotulo, () => executarRoteirizacao({ cenario, origem: "historico" }, client, dados));
+  if (registro) relatar(registro);
   return registro;
 });
-const historico = [];
+const porSemana = []; // índice = semana - 1 (null se a semana falhou)
 for (let i = 0; i < registros.length; i++) {
+  if (!registros[i]) { porSemana.push(null); continue; }
   try {
-    historico.push(await salvarRegistro(registros[i])); // sequencial: os ids do MockAPI seguem a ordem das semanas
+    porSemana.push(await salvarRegistro(registros[i])); // sequencial: os ids do MockAPI seguem a ordem das semanas
   } catch (e) {
     console.warn(`MockAPI indisponível (${e.message}); usando id local.`);
-    historico.push({ ...registros[i], id: semanas[i].id });
+    porSemana.push({ ...registros[i], id: semanas[i].id });
   }
 }
-salvarJson("data/historico.json", historico);
+salvarJson("data/historico.json", porSemana.filter(Boolean));
 
 // 3) Comparações prontas para o modo demonstração
 const pares = [[4, 3], [6, 5], [7, 6], [8, 7], [10, 9]];
 const comparacoes = {};
 await emParalelo(pares, 2, async ([a, b]) => {
-  const regA = historico[a - 1];
-  const regB = historico[b - 1];
-  comparacoes[`${regA.id}|${regB.id}`] = await compararComClaude(regA, regB, client);
+  const regA = porSemana[a - 1];
+  const regB = porSemana[b - 1];
+  if (!regA || !regB) return;
+  const exp = await tentar(`comparação ${a}×${b}`, () => compararComClaude(regA, regB, client));
+  if (!exp) return;
+  comparacoes[`${regA.id}|${regB.id}`] = exp;
   console.log(`✔ comparação ${regA.rotulo} × ${regB.rotulo}`);
 });
 salvarJson("data/comparacoes.json", comparacoes);

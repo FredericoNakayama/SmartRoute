@@ -99,7 +99,7 @@ function seletores() {
   const b = document.getElementById("sel-b");
   a.innerHTML = b.innerHTML = opcoes;
   // Par padrão com explicação pronta no modo demonstração: Semana 04 (pico) × Semana 03
-  const achar = (texto) => registros.find((r) => r.rotulo.startsWith(texto));
+  const achar = (texto) => registros.find((r) => String(r.rotulo ?? "").startsWith(texto));
   const padraoA = achar("Semana 04") ?? registros.at(-1);
   const padraoB = achar("Semana 03") ?? registros.at(-2) ?? registros[0];
   a.value = padraoA.id;

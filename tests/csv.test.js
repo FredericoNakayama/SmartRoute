@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parseCsvPedidos, COLUNAS, CIDADES_VALIDAS } from "../public/js/csv.js";
+import { parseCsvPedidos, COLUNAS, CIDADES_VALIDAS, decodificarArquivo } from "../public/js/csv.js";
 import cidades from "../data/cidades.json" with { type: "json" };
 
 const CAB = COLUNAS.join(",");
@@ -58,4 +58,23 @@ test("linhas em branco são ignoradas e mais de 60 pedidos é erro", () => {
 test("id repetido é erro", () => {
   const r = parseCsvPedidos([CAB, linha, linha].join("\n"));
   assert.ok(r.erros.some((e) => e.linha === 3 && /repetido/.test(e.mensagem)));
+});
+
+test("separador de milhar pt-BR: 1.200 é mil e duzentos", () => {
+  const r = parseCsvPedidos(`${CAB}\nP001,C,Niterói,RJ,1.200,2,2026-11-20,,sim\nP002,C,Niterói,RJ,1.234,5,2,2026-11-20,,sim\n`.replace("1.234,5,2", "1.234,5;2"));
+  assert.equal(r.pedidos[0].peso_kg, 1200);
+});
+
+test("arquivo do Excel em Windows-1252 é decodificado sem perder acentos", () => {
+  const texto = `${CAB}\nP001,C,Niterói,RJ,800,1,2026-11-20,,não\n`;
+  const bytes = Uint8Array.from([...texto].map((ch) => ({ "ó": 0xf3, "ã": 0xe3 })[ch] ?? ch.charCodeAt(0)));
+  const r = parseCsvPedidos(decodificarArquivo(bytes.buffer));
+  assert.deepEqual(r.erros, []);
+  assert.equal(r.pedidos[0].cidade, "Niterói");
+  assert.equal(decodificarArquivo(new TextEncoder().encode("Niterói").buffer), "Niterói");
+});
+
+test("data inexistente como 31/02/2026 é erro", () => {
+  const r = parseCsvPedidos(`${CAB}\nP001,C,Niterói,RJ,800,1,31/02/2026,,sim\n`);
+  assert.equal(r.erros.length, 1);
 });
