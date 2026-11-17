@@ -1,4 +1,4 @@
-# Roteirizador de Fretes com IA
+# SmartRoute — Roteirizador de Fretes com IA
 
 Um agente de IA (Claude) decide **como enviar cada carga de café pelo menor custo**, comparando transportadoras, tipos de veículo e as modalidades **lotação (FTL)** e **fracionado (LTL)**, seguindo uma **spec de regras de negócio**. Um validador em código confere cada regra depois da resposta da IA.
 
