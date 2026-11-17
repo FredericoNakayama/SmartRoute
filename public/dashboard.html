@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard — Roteirizador de Fretes com IA</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="/"><i class="bi bi-truck"></i> Roteirizador IA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Roteirizador</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/spec.html">Spec de regras</a></li>
+          <li class="nav-item"><a class="nav-link" href="/caso.html">O caso real</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container pb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="h4 mb-0">Histórico de roteirizações</h1>
+      <span id="fonte"></span>
+    </div>
+    <div id="carregando" class="text-muted"><span class="spinner-border spinner-border-sm"></span> Carregando histórico…</div>
+    <div id="vazio" class="alert alert-info d-none">Ainda não há roteirizações no histórico.</div>
+
+    <div id="conteudo" class="d-none">
+      <div class="row g-3 mb-4" id="kpis"></div>
+
+      <div class="row g-3 mb-4">
+        <div class="col-lg-8"><div class="card h-100"><div class="card-body">
+          <h2 class="h6">Custo da IA × custo sem otimização</h2><canvas id="g-custo" height="120"></canvas>
+        </div></div></div>
+        <div class="col-lg-4"><div class="card h-100"><div class="card-body">
+          <h2 class="h6">Custo por palete</h2><canvas id="g-palete" height="250"></canvas>
+        </div></div></div>
+        <div class="col-12"><div class="card"><div class="card-body">
+          <h2 class="h6">Como cada dia foi enviado (lotações por veículo e pedidos em fracionado)</h2><canvas id="g-mix" height="90"></canvas>
+        </div></div></div>
+      </div>
+
+      <div class="card mb-4"><div class="card-body">
+        <h2 class="h5"><i class="bi bi-stars"></i> Por que uma roteirização ficou mais cara ou mais barata?</h2>
+        <p class="small text-muted">Escolha duas roteirizações. A IA analisa os dados das duas e explica a diferença.</p>
+        <div class="row g-2 align-items-end">
+          <div class="col-md-5"><label class="form-label small" for="sel-a">Roteirização A</label><select class="form-select" id="sel-a"></select></div>
+          <div class="col-md-5"><label class="form-label small" for="sel-b">comparada com B</label><select class="form-select" id="sel-b"></select></div>
+          <div class="col-md-2"><button class="btn btn-cafe w-100" id="btn-comparar"><i class="bi bi-search"></i> Explicar</button></div>
+        </div>
+        <div id="comparacao" class="mt-3"></div>
+      </div></div>
+
+      <div class="card"><div class="card-body">
+        <h2 class="h6">Todas as roteirizações <span class="small text-muted">(clique numa linha para ver os envios)</span></h2>
+        <div class="table-responsive"><table class="table table-hover table-sm align-middle mb-0">
+          <thead><tr><th>Roteirização</th><th>Data</th><th>Origem</th><th class="text-end">Pedidos</th><th class="text-end">Envios</th>
+            <th class="text-end">Custo</th><th class="text-end">Saving</th><th class="text-end">Ocupação</th><th class="text-end">Violações</th></tr></thead>
+          <tbody id="tabela"></tbody>
+        </table></div>
+      </div></div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="modal" tabindex="-1"><div class="modal-dialog modal-xl modal-dialog-scrollable"><div class="modal-content">
+    <div class="modal-header"><h2 class="modal-title h5" id="modal-titulo"></h2><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body" id="modal-corpo"></div>
+  </div></div></div>
+
+  <footer class="container pb-4">Projeto de portfólio · dados fictícios · IA: Claude (Anthropic)</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script type="module" src="/js/dashboard.js"></script>
+</body>
+</html>
