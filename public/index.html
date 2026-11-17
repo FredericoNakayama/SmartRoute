@@ -32,7 +32,19 @@
         <span class="opacity-75">Dados 100% fictícios.</span></p>
     </section>
 
+    <div class="row g-3 mb-4">
+      <div class="col-md-6"><div class="modo-card demo h-100">
+        <div class="fw-semibold"><i class="bi bi-collection-play"></i> Cenários prontos — demonstração gratuita</div>
+        <div class="small">Mostram resultados que o Claude gerou anteriormente. <strong>Não chamam a API do Claude e não gastam créditos.</strong> Resposta instantânea.</div>
+      </div></div>
+      <div class="col-md-6"><div class="modo-card ao-vivo h-100">
+        <div class="fw-semibold"><i class="bi bi-broadcast"></i> Seu CSV — IA ao vivo</div>
+        <div class="small">Faz uma <strong>chamada real à API do Claude</strong> (custa alguns centavos), gera um resultado novo e o salva no histórico do dashboard.</div>
+      </div></div>
+    </div>
+
     <h2 class="h5">1. Escolha os pedidos do dia</h2>
+    <h3 class="h6 text-muted"><span class="badge text-bg-secondary">Demonstração · sem custo</span> Cenários prontos</h3>
     <div class="row g-3 mb-3" id="cenarios">
       <div class="col-md-4"><div class="card card-cenario h-100" data-cenario="cenario-1"><div class="card-body">
         <h3 class="h6"><i class="bi bi-calendar-week"></i> Semana típica</h3>
@@ -49,7 +61,8 @@
     </div>
 
     <div class="card mb-4"><div class="card-body">
-      <label for="arquivo" class="form-label fw-semibold"><i class="bi bi-filetype-csv"></i> …ou envie seu próprio CSV (até 60 pedidos)</label>
+      <label for="arquivo" class="form-label fw-semibold"><span class="badge text-bg-success">IA ao vivo · alguns centavos</span>
+        <i class="bi bi-filetype-csv"></i> …ou envie seu próprio CSV (até 60 pedidos)</label>
       <div class="d-flex flex-wrap gap-2 align-items-center">
         <input class="form-control w-auto" type="file" id="arquivo" accept=".csv,text/csv">
         <a class="btn btn-outline-secondary btn-sm" href="/modelo-pedidos.csv" download><i class="bi bi-download"></i> Baixar CSV modelo</a>

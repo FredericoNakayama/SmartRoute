@@ -15,12 +15,12 @@ function selecionarCenario(card) {
   document.getElementById("csv-erros").innerHTML = "";
   document.getElementById("csv-previa").innerHTML = "";
   btn.disabled = false;
-  status.textContent = `Cenário: ${card.querySelector("h3").textContent.trim()}`;
+  status.innerHTML = `<strong>${esc(card.querySelector("h3").textContent.trim())}</strong> · demonstração: mostra o resultado gerado antes pelo Claude, <strong>sem chamar a API e sem custo</strong>.`;
 }
 
 document.querySelectorAll(".card-cenario").forEach((card) => card.addEventListener("click", () => selecionarCenario(card)));
 
-// Link direto para um cenário: /?cenario=cenario-1 já roteiriza ao abrir.
+// Link direto para um cenário: /?cenario=cenario-1 já mostra o resultado de demonstração (sem custo).
 const cenarioDaUrl = new URLSearchParams(location.search).get("cenario");
 const cardDaUrl = document.querySelector(`.card-cenario[data-cenario="${CSS.escape(cenarioDaUrl ?? "")}"]`);
 if (cardDaUrl) {
@@ -49,14 +49,14 @@ document.getElementById("arquivo").addEventListener("change", async (ev) => {
 
   entrada = erros.length || !pedidos.length ? null : { pedidos, rotulo: arquivo.name.replace(/\.csv$/i, "") };
   btn.disabled = !entrada;
-  status.textContent = entrada ? `CSV: ${arquivo.name}` : "O CSV tem erros.";
+  status.innerHTML = entrada ? `<strong>${esc(arquivo.name)}</strong> · IA ao vivo: ao clicar, <strong>chama a API do Claude</strong> (alguns centavos) e salva no histórico.` : "O CSV tem erros.";
 });
 
 btn.addEventListener("click", async () => {
   if (!entrada || btn.disabled) return;
   btn.disabled = true;
   btn.innerHTML = `<span class="spinner-border spinner-border-sm"></span> Roteirizando…`;
-  status.textContent = "A IA está comparando transportadoras, veículos e modalidades… pode levar até 1 minuto.";
+  status.textContent = entrada.cenario ? "Carregando o resultado de demonstração…" : "A IA está comparando transportadoras, veículos e modalidades… pode levar até 1 minuto.";
   alerta.innerHTML = "";
   try {
     const resp = await fetch("/api/roteirizar", {
@@ -82,8 +82,8 @@ btn.addEventListener("click", async () => {
 
 function mostrarResultado({ modo, registro: r, salvo, aviso }) {
   const selo = modo === "ao_vivo"
-    ? `<span class="badge text-bg-success selo"><i class="bi bi-broadcast"></i> IA ao vivo</span>`
-    : `<span class="badge text-bg-secondary selo"><i class="bi bi-collection-play"></i> Demonstração (resultado pré-gerado pela IA)</span>`;
+    ? `<span class="badge text-bg-success selo"><i class="bi bi-broadcast"></i> IA ao vivo · chamada real ao Claude</span>`
+    : `<span class="badge text-bg-secondary selo"><i class="bi bi-collection-play"></i> Demonstração · resultado gerado antes pelo Claude · sem custo</span>`;
   const avisos = [
     aviso ? `<div class="alert alert-info py-2 small mb-2">${esc(aviso)}</div>` : "",
     modo === "ao_vivo" && !salvo ? `<div class="alert alert-warning py-2 small mb-2">O histórico está indisponível: esta roteirização não foi salva no dashboard.</div>` : "",

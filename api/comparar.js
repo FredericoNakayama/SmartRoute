@@ -1,18 +1,16 @@
-// POST /api/comparar — corpo {idA, idB}: a IA explica por que A custou mais ou menos que B.
+// POST /api/comparar — corpo {idA, idB}: explica por que A custou mais ou menos que B.
+//  - Par com explicação pronta (gerada antes pelo Claude) -> DEMONSTRAÇÃO, sem chamar a API, custo zero.
+//  - Qualquer outro par -> AO VIVO: chama o Claude (cerca de 2 a 5 centavos de dólar).
 import { criarCliente, compararComClaude, ErroIA } from "../lib/claude.js";
 import { listarRegistros } from "../lib/mockapi.js";
 import { permitir } from "../lib/rateLimit.js";
 import { lerJson, obterHistorico, ipDe, lerCorpo } from "../lib/arquivos.js";
 
-async function modoDemo(idA, idB, aviso) {
-  const prontas = await lerJson("comparacoes.json", {});
-  const pronta = prontas[`${idA}|${idB}`] ?? prontas[`${idB}|${idA}`];
-  if (pronta) return Response.json({ modo: "demo", aviso, ...pronta });
-  return Response.json(
-    { modo: "demo", erro: `${aviso} No modo demonstração, só os pares pré-selecionados têm explicação pronta.` },
+const indisponivel = (motivo) =>
+  Response.json(
+    { modo: "indisponivel", erro: `${motivo} Os pares marcados como "explicação pronta" continuam disponíveis sem custo.` },
     { status: 503 },
   );
-}
 
 export async function POST(request) {
   const corpo = await lerCorpo(request);
@@ -20,19 +18,29 @@ export async function POST(request) {
   const idB = corpo?.idB != null ? String(corpo.idB) : "";
   if (!idA || !idB || idA === idB) return Response.json({ erro: "Escolha duas roteirizações diferentes." }, { status: 400 });
 
+  // A explicação pronta só vale na mesma ordem (A × B): ela fala de "A" e "B".
+  const prontas = await lerJson("comparacoes.json", {});
+  const pronta = prontas[`${idA}|${idB}`];
+  if (pronta) return Response.json({ modo: "demo", ...pronta });
+
   const { registros } = await obterHistorico(() => listarRegistros());
   const regA = registros.find((r) => String(r.id) === idA);
   const regB = registros.find((r) => String(r.id) === idB);
   if (!regA || !regB) return Response.json({ erro: "Roteirização não encontrada no histórico." }, { status: 400 });
 
   const client = criarCliente();
-  if (!client) return modoDemo(idA, idB, "A IA ao vivo não está configurada.");
-  if (!permitir(ipDe(request))) return modoDemo(idA, idB, "Limite de chamadas ao vivo atingido (5 a cada 10 minutos).");
+  if (!client) return indisponivel("A IA ao vivo não está configurada neste servidor.");
+  if (!permitir(ipDe(request))) return indisponivel("Limite de chamadas ao vivo atingido (5 a cada 10 minutos).");
 
   try {
     return Response.json({ modo: "ao_vivo", ...(await compararComClaude(regA, regB, client)) });
   } catch (e) {
-    if (e instanceof ErroIA) return modoDemo(idA, idB, `A IA não respondeu (${e.motivo}).`);
+    if (e instanceof ErroIA) return indisponivel(`A IA não respondeu agora (${e.motivo}).`);
     throw e;
   }
+}
+
+/** GET /api/comparar — lista os pares com explicação pronta (para a tela marcá-los como "sem custo"). */
+export async function GET() {
+  return Response.json({ prontas: Object.keys(await lerJson("comparacoes.json", {})) });
 }

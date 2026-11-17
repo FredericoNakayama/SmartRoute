@@ -1,7 +1,7 @@
 import { esc, brl, painelResultado } from "./visual.js";
 
 const CORES = { VUC: "#c8a27a", Toco: "#a0714f", Truck: "#6f4a33", Carreta: "#3b2417", Fracionado: "#d9b43a" };
-const ORIGEM = { historico: "Histórico", cenario: "Cenário pronto", csv: "CSV enviado" };
+const ORIGEM = { historico: "Histórico (gerado pela IA)", cenario: "Cenário pronto", csv: "CSV (IA ao vivo)" };
 const pct = (n) => `${Number(n).toLocaleString("pt-BR")}%`;
 const media = (lista) => (lista.length ? lista.reduce((s, x) => s + x, 0) / lista.length : 0);
 let registros = [];
@@ -105,6 +105,31 @@ function seletores() {
   a.value = padraoA.id;
   b.value = padraoB.id;
   document.getElementById("btn-comparar").addEventListener("click", comparar);
+  a.addEventListener("change", marcarCusto);
+  b.addEventListener("change", marcarCusto);
+  carregarProntas();
+}
+
+let prontas = new Set();
+
+async function carregarProntas() {
+  try {
+    prontas = new Set((await (await fetch("/api/comparar")).json()).prontas ?? []);
+  } catch {
+    prontas = new Set();
+  }
+  const nome = (id) => esc(registros.find((r) => String(r.id) === id)?.rotulo.split(" — ")[0] ?? id);
+  const pares = [...prontas].map((k) => k.split("|")).filter(([x, y]) => nome(x) !== x || nome(y) !== y);
+  document.getElementById("info-prontas").innerHTML = pares.length
+    ? `<span class="badge text-bg-secondary">Demonstração · sem custo</span> Explicações prontas, geradas antes pelo Claude: ${pares.map(([x, y]) => `${nome(x)} × ${nome(y)}`).join(", ")}.
+       <span class="badge text-bg-success ms-1">IA ao vivo · centavos</span> Qualquer outro par chama a API do Claude.`
+    : "";
+  marcarCusto();
+}
+
+function marcarCusto() {
+  const chave = `${document.getElementById("sel-a").value}|${document.getElementById("sel-b").value}`;
+  document.getElementById("btn-comparar").title = prontas.has(chave) ? "Explicação pronta: sem custo" : "Chama a API do Claude ao vivo (alguns centavos)";
 }
 
 async function comparar() {
@@ -148,8 +173,8 @@ function explicacao({ modo, explicacao: texto, fatores, aviso }, a, b) {
     ["Custo total", brl(a.custo_total), brl(b.custo_total)],
   ];
   const selo = modo === "ao_vivo"
-    ? `<span class="badge text-bg-success selo">IA ao vivo</span>`
-    : `<span class="badge text-bg-secondary selo">Demonstração (explicação pré-gerada pela IA)</span>`;
+    ? `<span class="badge text-bg-success selo">IA ao vivo · chamada real ao Claude</span>`
+    : `<span class="badge text-bg-secondary selo">Demonstração · explicação gerada antes pelo Claude · sem custo</span>`;
   return `
     <div class="row g-3">
       <div class="col-lg-8">

@@ -97,7 +97,10 @@ O problema real era **escolher como enviar cada carga de café pelo menor preço
 - **Histórico fictício pré-gerado:** 10–15 roteirizações de "semanas" diferentes, com variações propositais (pico de pedidos, cliente só-VUC, carga fracionada), carregadas no MockAPI uma vez e copiadas em `data/historico.json` como fallback.
 
 ### A demo nunca quebra
-- **Sem chave de API, sem créditos ou limite atingido:** os cenários prontos usam resultados pré-gerados (`data/resultados/`). O envio de CSV e a comparação mostram um aviso de "modo demonstração". Para as comparações, há algumas explicações pré-geradas entre pares do histórico.
+- **Revisado em 17/11/2026 (pedido de Frederico): dois modos explícitos.**
+  - **3 cenários prontos = demonstração:** sempre devolvem o resultado gerado antes pelo Claude (`data/resultados/`). **Não chamam a API, não gastam créditos, não gravam no histórico.** O link `/?cenario=cenario-N` também é gratuito.
+  - **Envio de CSV = IA ao vivo:** chamada real ao Claude (alguns centavos), resultado novo, salvo no MockAPI. Sem chave, limite atingido ou erro da IA → aviso de indisponibilidade só para o CSV.
+  - **Comparação no dashboard:** os pares com explicação pronta (`data/comparacoes.json`, mesma ordem A×B) são gratuitos; os demais chamam o Claude ao vivo.
 - **MockAPI fora do ar:** o dashboard usa `data/historico.json`, e a roteirização funciona mesmo sem salvar.
 - **Limite por IP** nas funções que chamam o Claude, além do limite de gasto mensal no Console.
 

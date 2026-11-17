@@ -26,6 +26,10 @@ body { background: var(--creme); color: #2b2b2b; }
 .envio .justificativa { font-size: .9rem; color: #555; }
 .selo { font-size: .75rem; }
 
+.modo-card { background: #fff; border-radius: .75rem; padding: .9rem 1rem; border-left: 5px solid; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.modo-card.demo { border-left-color: #6c757d; }
+.modo-card.ao-vivo { border-left-color: var(--verde); }
+
 .tabela-previa { max-height: 260px; overflow: auto; font-size: .85rem; }
 .hero { background: linear-gradient(135deg, var(--cafe), var(--cafe-claro)); color: #fff; border-radius: 1rem; }
 footer { font-size: .8rem; color: #6c757d; }
