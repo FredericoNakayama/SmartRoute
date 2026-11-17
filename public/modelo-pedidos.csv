@@ -1,0 +1,4 @@
+id,cliente,cidade,uf,peso_kg,paletes,data_limite_entrega,restricao_veiculo,aceita_fracionado
+P001,Cliente Exemplo 01,Rio de Janeiro,RJ,2400,3,2026-11-20,,sim
+P002,Cliente Exemplo 02,Niterói,RJ,800,1,2026-11-19,VUC,sim
+P003,Cliente Exemplo 03,Porto Alegre,RS,9600,12,2026-11-24,,não

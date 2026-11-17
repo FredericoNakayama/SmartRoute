@@ -1,0 +1,650 @@
+{
+  "id": "cenario-2",
+  "rotulo": "Pico de fim de mês",
+  "data_envio": "2026-11-30",
+  "disponibilidade": {
+    "T1": {
+      "veiculos": {
+        "VUC": 2,
+        "Toco": 2,
+        "Truck": 2,
+        "Carreta": 2
+      },
+      "fracionado_paletes": {
+        "RJ": 10,
+        "RS": 8
+      }
+    },
+    "T2": {
+      "veiculos": {
+        "VUC": 2,
+        "Toco": 2,
+        "Truck": 2,
+        "Carreta": 2
+      },
+      "fracionado_paletes": {
+        "RJ": 10,
+        "RS": 8
+      }
+    },
+    "T3": {
+      "veiculos": {
+        "VUC": 2,
+        "Toco": 2,
+        "Truck": 2,
+        "Carreta": 2
+      },
+      "fracionado_paletes": {
+        "RJ": 10,
+        "RS": 8
+      }
+    }
+  },
+  "pedidos": [
+    {
+      "id": "P001",
+      "cliente": "Cliente Fictício 12",
+      "cidade": "Resende",
+      "uf": "RJ",
+      "peso_kg": 1647,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P002",
+      "cliente": "Cliente Fictício 28",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "peso_kg": 1734,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-02",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P003",
+      "cliente": "Cliente Fictício 04",
+      "cidade": "Resende",
+      "uf": "RJ",
+      "peso_kg": 2243,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P004",
+      "cliente": "Cliente Fictício 36",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 4523,
+      "paletes": 5,
+      "data_limite_entrega": "2026-12-02",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P005",
+      "cliente": "Cliente Fictício 39",
+      "cidade": "Resende",
+      "uf": "RJ",
+      "peso_kg": 1552,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-05",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P006",
+      "cliente": "Cliente Fictício 22",
+      "cidade": "Caxias do Sul",
+      "uf": "RS",
+      "peso_kg": 1433,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-07",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P007",
+      "cliente": "Cliente Fictício 16",
+      "cidade": "Resende",
+      "uf": "RJ",
+      "peso_kg": 1871,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P008",
+      "cliente": "Cliente Fictício 33",
+      "cidade": "Santa Maria",
+      "uf": "RS",
+      "peso_kg": 3117,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P009",
+      "cliente": "Cliente Fictício 27",
+      "cidade": "Resende",
+      "uf": "RJ",
+      "peso_kg": 3614,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-06",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P010",
+      "cliente": "Cliente Fictício 20",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 3410,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-07",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P011",
+      "cliente": "Cliente Fictício 02",
+      "cidade": "Pelotas",
+      "uf": "RS",
+      "peso_kg": 3831,
+      "paletes": 5,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P012",
+      "cliente": "Cliente Fictício 25",
+      "cidade": "Petrópolis",
+      "uf": "RJ",
+      "peso_kg": 3723,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P013",
+      "cliente": "Cliente Fictício 30",
+      "cidade": "Niterói",
+      "uf": "RJ",
+      "peso_kg": 3477,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P014",
+      "cliente": "Cliente Fictício 14",
+      "cidade": "Petrópolis",
+      "uf": "RJ",
+      "peso_kg": 2452,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-01",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P015",
+      "cliente": "Cliente Fictício 04",
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "peso_kg": 2140,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-02",
+      "restricao_veiculo": "Toco",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P016",
+      "cliente": "Cliente Fictício 39",
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "peso_kg": 2495,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P017",
+      "cliente": "Cliente Fictício 02",
+      "cidade": "Pelotas",
+      "uf": "RS",
+      "peso_kg": 4373,
+      "paletes": 5,
+      "data_limite_entrega": "2026-12-05",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P018",
+      "cliente": "Cliente Fictício 38",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 3794,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P019",
+      "cliente": "Cliente Fictício 36",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "peso_kg": 2629,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-06",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P020",
+      "cliente": "Cliente Fictício 07",
+      "cidade": "Pelotas",
+      "uf": "RS",
+      "peso_kg": 1769,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-06",
+      "restricao_veiculo": "Toco",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P021",
+      "cliente": "Cliente Fictício 26",
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "peso_kg": 2380,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-05",
+      "restricao_veiculo": "",
+      "aceita_fracionado": false
+    },
+    {
+      "id": "P022",
+      "cliente": "Cliente Fictício 29",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 1801,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-05",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P023",
+      "cliente": "Cliente Fictício 18",
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "peso_kg": 2575,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-01",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P024",
+      "cliente": "Cliente Fictício 30",
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "peso_kg": 1889,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P025",
+      "cliente": "Cliente Fictício 28",
+      "cidade": "Petrópolis",
+      "uf": "RJ",
+      "peso_kg": 2999,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-06",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P026",
+      "cliente": "Cliente Fictício 39",
+      "cidade": "Pelotas",
+      "uf": "RS",
+      "peso_kg": 4547,
+      "paletes": 5,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P027",
+      "cliente": "Cliente Fictício 10",
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "peso_kg": 3675,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-02",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P028",
+      "cliente": "Cliente Fictício 11",
+      "cidade": "Resende",
+      "uf": "RJ",
+      "peso_kg": 3077,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-05",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P029",
+      "cliente": "Cliente Fictício 08",
+      "cidade": "Canoas",
+      "uf": "RS",
+      "peso_kg": 2239,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-02",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P030",
+      "cliente": "Cliente Fictício 14",
+      "cidade": "Pelotas",
+      "uf": "RS",
+      "peso_kg": 2928,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-05",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P031",
+      "cliente": "Cliente Fictício 20",
+      "cidade": "Canoas",
+      "uf": "RS",
+      "peso_kg": 2210,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P032",
+      "cliente": "Cliente Fictício 06",
+      "cidade": "Petrópolis",
+      "uf": "RJ",
+      "peso_kg": 2912,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-01",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P033",
+      "cliente": "Cliente Fictício 10",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 1517,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-07",
+      "restricao_veiculo": "VUC",
+      "aceita_fracionado": false
+    },
+    {
+      "id": "P034",
+      "cliente": "Cliente Fictício 21",
+      "cidade": "Canoas",
+      "uf": "RS",
+      "peso_kg": 2742,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-02",
+      "restricao_veiculo": "Toco",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P035",
+      "cliente": "Cliente Fictício 23",
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "peso_kg": 4971,
+      "paletes": 6,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P036",
+      "cliente": "Cliente Fictício 30",
+      "cidade": "Petrópolis",
+      "uf": "RJ",
+      "peso_kg": 2618,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P037",
+      "cliente": "Cliente Fictício 06",
+      "cidade": "Santa Maria",
+      "uf": "RS",
+      "peso_kg": 2835,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P038",
+      "cliente": "Cliente Fictício 27",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 1786,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P039",
+      "cliente": "Cliente Fictício 08",
+      "cidade": "Petrópolis",
+      "uf": "RJ",
+      "peso_kg": 3552,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-01",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P040",
+      "cliente": "Cliente Fictício 20",
+      "cidade": "Canoas",
+      "uf": "RS",
+      "peso_kg": 1828,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-07",
+      "restricao_veiculo": "Truck",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P041",
+      "cliente": "Cliente Fictício 09",
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "peso_kg": 3636,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P042",
+      "cliente": "Cliente Fictício 22",
+      "cidade": "Santa Maria",
+      "uf": "RS",
+      "peso_kg": 3120,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "VUC",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P043",
+      "cliente": "Cliente Fictício 07",
+      "cidade": "Niterói",
+      "uf": "RJ",
+      "peso_kg": 4045,
+      "paletes": 5,
+      "data_limite_entrega": "2026-12-05",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P044",
+      "cliente": "Cliente Fictício 37",
+      "cidade": "Pelotas",
+      "uf": "RS",
+      "peso_kg": 2826,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-02",
+      "restricao_veiculo": "",
+      "aceita_fracionado": false
+    },
+    {
+      "id": "P045",
+      "cliente": "Cliente Fictício 33",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 2122,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": false
+    },
+    {
+      "id": "P046",
+      "cliente": "Cliente Fictício 37",
+      "cidade": "Resende",
+      "uf": "RJ",
+      "peso_kg": 2756,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P047",
+      "cliente": "Cliente Fictício 02",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 2813,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-07",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P048",
+      "cliente": "Cliente Fictício 40",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "peso_kg": 4265,
+      "paletes": 5,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P049",
+      "cliente": "Cliente Fictício 16",
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "peso_kg": 2788,
+      "paletes": 3,
+      "data_limite_entrega": "2026-12-06",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P050",
+      "cliente": "Cliente Fictício 09",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 4349,
+      "paletes": 5,
+      "data_limite_entrega": "2026-12-04",
+      "restricao_veiculo": "",
+      "aceita_fracionado": false
+    },
+    {
+      "id": "P051",
+      "cliente": "Cliente Fictício 15",
+      "cidade": "Caxias do Sul",
+      "uf": "RS",
+      "peso_kg": 3023,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-03",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P052",
+      "cliente": "Cliente Fictício 16",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "peso_kg": 2834,
+      "paletes": 4,
+      "data_limite_entrega": "2026-12-02",
+      "restricao_veiculo": "",
+      "aceita_fracionado": false
+    },
+    {
+      "id": "P053",
+      "cliente": "Cliente Fictício 05",
+      "cidade": "Caxias do Sul",
+      "uf": "RS",
+      "peso_kg": 4504,
+      "paletes": 5,
+      "data_limite_entrega": "2026-12-06",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P054",
+      "cliente": "Cliente Fictício 12",
+      "cidade": "Resende",
+      "uf": "RJ",
+      "peso_kg": 1722,
+      "paletes": 2,
+      "data_limite_entrega": "2026-12-01",
+      "restricao_veiculo": "",
+      "aceita_fracionado": true
+    },
+    {
+      "id": "P055",
+      "cliente": "Cliente Fictício 16",
+      "cidade": "Pelotas",
+      "uf": "RS",
+      "peso_kg": 4511,
+      "paletes": 5,
+      "data_limite_entrega": "2026-12-05",
+      "restricao_veiculo": "VUC",
+      "aceita_fracionado": true
+    }
+  ]
+}
