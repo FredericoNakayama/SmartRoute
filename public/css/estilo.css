@@ -1,0 +1,31 @@
+:root {
+  --cafe: #4b2e1e;
+  --cafe-claro: #8a5a3c;
+  --creme: #f7f3ee;
+  --verde: #1f7a4d;
+}
+
+body { background: var(--creme); color: #2b2b2b; }
+.navbar { background: var(--cafe); }
+.navbar .nav-link.active { font-weight: 600; text-decoration: underline; text-underline-offset: 6px; }
+.btn-cafe { background: var(--cafe); color: #fff; border: none; }
+.btn-cafe:hover, .btn-cafe:focus { background: var(--cafe-claro); color: #fff; }
+.btn-cafe:disabled { background: #9c8a7f; color: #fff; }
+
+.card-cenario { cursor: pointer; transition: transform .1s, box-shadow .1s; border: 2px solid transparent; }
+.card-cenario:hover { transform: translateY(-2px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.08); }
+.card-cenario.selecionado { border-color: var(--cafe); }
+
+.kpi { background: #fff; border-radius: .75rem; padding: 1rem; height: 100%; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.kpi .valor { font-size: 1.6rem; font-weight: 700; color: var(--cafe); }
+.kpi .rotulo { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #6c757d; }
+.kpi.destaque .valor { color: var(--verde); }
+
+.envio { border-left: 5px solid var(--cafe); }
+.envio.fracionado { border-left-color: #c9a227; }
+.envio .justificativa { font-size: .9rem; color: #555; }
+.selo { font-size: .75rem; }
+
+.tabela-previa { max-height: 260px; overflow: auto; font-size: .85rem; }
+.hero { background: linear-gradient(135deg, var(--cafe), var(--cafe-claro)); color: #fff; border-radius: 1rem; }
+footer { font-size: .8rem; color: #6c757d; }

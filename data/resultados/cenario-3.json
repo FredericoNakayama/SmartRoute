@@ -9,8 +9,8 @@
     "n_envios": 0,
     "paletes_total": 0,
     "custo_total": 0,
-    "custo_referencia": 60250,
-    "saving_pct": 100,
+    "custo_referencia": 0,
+    "saving_pct": 0,
     "custo_por_palete": 0,
     "ocupacao_media": 0,
     "mix_veiculos": {
