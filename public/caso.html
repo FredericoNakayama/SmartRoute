@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O caso real — Roteirizador de Fretes com IA</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="/"><i class="bi bi-truck"></i> Roteirizador IA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Roteirizador</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/spec.html">Spec de regras</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/caso.html">O caso real</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container pb-5" style="max-width: 900px">
+    <section class="hero p-4 mb-4">
+      <div class="small text-uppercase opacity-75">Estágio · Logística e Finanças</div>
+      <h1 class="h3 mt-1">Um agente de IA que roteiriza fretes de café — em produção</h1>
+      <p class="mb-0">Esta demo recria, com dados fictícios, um projeto real do qual participei no meu estágio atual na JDE Peet's.</p>
+    </section>
+
+    <div class="row g-3 mb-4 text-center">
+      <div class="col-md-4"><div class="kpi destaque"><div class="rotulo">Saving mensal</div><div class="valor">~10%</div><div class="small text-muted">no custo de frete da rota</div></div></div>
+      <div class="col-md-4"><div class="kpi destaque"><div class="rotulo">Tempo da equipe</div><div class="valor">−20h/mês</div><div class="small text-muted">de trabalho manual de roteirização</div></div></div>
+      <div class="col-md-4"><div class="kpi"><div class="rotulo">Escala</div><div class="valor">SP→RJ · SP→RS</div><div class="small text-muted">e novas rotas em construção</div></div></div>
+    </div>
+
+    <div class="card mb-3"><div class="card-body">
+      <h2 class="h5"><i class="bi bi-question-circle"></i> O problema</h2>
+      <p>Todos os dias a equipe de roteirização precisava decidir <strong>como enviar cada carga de café pelo menor preço</strong>.
+        Vale mais a pena uma carreta grande ou dois trucks? Lotação ou fracionado? Qual transportadora, se cada uma tem preços, prazos e
+        veículos disponíveis diferentes? Às vezes valia pagar mais para entregar mais rápido; no fracionado, cargas de terceiros com
+        restrições de empilhamento reduziam o espaço disponível; e nem sempre a transportadora tinha o caminhão ideal naquela data.</p>
+      <p class="mb-0">Com tantos detalhes, o custo vinha de <strong>erros humanos e escolhas não tão otimizadas</strong>.</p>
+    </div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <h2 class="h5"><i class="bi bi-person-gear"></i> Meu papel</h2>
+      <p class="mb-0">Junto com as equipes de Logística e Finanças, construímos um <strong>agente no Microsoft Copilot</strong> para fazer a roteirização.
+        Minha tarefa era dar apoio técnico e <strong>traduzir as regras de negócio e as particularidades do processo em specs bem definidas</strong>,
+        para orientar corretamente a IA a roteirizar os fretes, sempre priorizando o menor custo possível dentro das regras.</p>
+    </div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <h2 class="h5"><i class="bi bi-graph-down-arrow"></i> Resultado</h2>
+      <p class="mb-0">Em cerca de 3 meses rodando na rota <strong>SP→RJ</strong>, o agente gerou <strong>~10% de saving por mês</strong> e
+        <strong>reduziu 20 horas mensais</strong> de trabalho da equipe. A rota <strong>SP→RS</strong> já foi criada, e outras rotas estão
+        em construção, com uma oportunidade grande de savings.</p>
+    </div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <h2 class="h5"><i class="bi bi-laptop"></i> Esta demo</h2>
+      <ul class="mb-0">
+        <li>Reproduz a <strong>forma de trabalhar</strong> do agente: uma <a href="/spec.html">spec de regras</a> guia a IA (Claude), que compara transportadoras, veículos e modalidades.</li>
+        <li>Acrescenta um <strong>validador em código</strong> que confere cada regra depois da resposta da IA, porque a IA não deve ser aceita sem verificação.</li>
+        <li>Guarda cada roteirização num histórico (MockAPI) e tem um <a href="/dashboard.html">dashboard</a> onde a IA explica por que um dia custou mais que outro.</li>
+        <li>Construída com HTML, Bootstrap, JavaScript, funções serverless na Vercel e a API do Claude, com apoio de IA no desenvolvimento.</li>
+      </ul>
+    </div></div>
+
+    <p class="small text-muted"><i class="bi bi-lock"></i> Valores reais não divulgados: os resultados acima estão em percentuais.
+      Transportadoras, clientes, preços e regras desta demo são fictícios.</p>
+  </main>
+  <footer class="container pb-4">Projeto de portfólio · dados fictícios · IA: Claude (Anthropic)</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
