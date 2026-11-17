@@ -1,6 +1,0 @@
-{
-  "version": "0.0.1",
-  "configurations": [
-    { "name": "roteirizador", "runtimeExecutable": "C:\Program Files\nodejs\node.exe", "runtimeArgs": ["--env-file-if-exists=.env", "dev-server.js"], "port": 3000 }
-  ]
-}
