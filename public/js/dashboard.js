@@ -121,15 +121,15 @@ async function carregarProntas() {
   const nome = (id) => esc(registros.find((r) => String(r.id) === id)?.rotulo.split(" — ")[0] ?? id);
   const pares = [...prontas].map((k) => k.split("|")).filter(([x, y]) => nome(x) !== x || nome(y) !== y);
   document.getElementById("info-prontas").innerHTML = pares.length
-    ? `<span class="badge text-bg-secondary">Demonstração · sem custo</span> Explicações prontas, geradas antes pelo Claude: ${pares.map(([x, y]) => `${nome(x)} × ${nome(y)}`).join(", ")}.
-       <span class="badge text-bg-success ms-1">IA ao vivo · centavos</span> Qualquer outro par chama a API do Claude.`
+    ? `<span class="badge text-bg-secondary">Demonstração · não chama a IA</span> Explicações prontas, geradas antes pelo Claude: ${pares.map(([x, y]) => `${nome(x)} × ${nome(y)}`).join(", ")}.
+       <span class="badge text-bg-success ms-1">IA ao vivo · grátis para você</span> Qualquer outro par chama a API do Claude.`
     : "";
   marcarCusto();
 }
 
 function marcarCusto() {
   const chave = `${document.getElementById("sel-a").value}|${document.getElementById("sel-b").value}`;
-  document.getElementById("btn-comparar").title = prontas.has(chave) ? "Explicação pronta: sem custo" : "Chama a API do Claude ao vivo (alguns centavos)";
+  document.getElementById("btn-comparar").title = prontas.has(chave) ? "Explicação pronta: não chama a IA" : "Chama a API do Claude ao vivo (gratuito para você)";
 }
 
 async function comparar() {
@@ -174,7 +174,7 @@ function explicacao({ modo, explicacao: texto, fatores, aviso }, a, b) {
   ];
   const selo = modo === "ao_vivo"
     ? `<span class="badge text-bg-success selo">IA ao vivo · chamada real ao Claude</span>`
-    : `<span class="badge text-bg-secondary selo">Demonstração · explicação gerada antes pelo Claude · sem custo</span>`;
+    : `<span class="badge text-bg-secondary selo">Demonstração · explicação gerada antes pelo Claude</span>`;
   return `
     <div class="row g-3">
       <div class="col-lg-8">

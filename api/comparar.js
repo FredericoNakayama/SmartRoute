@@ -1,6 +1,6 @@
 // POST /api/comparar — corpo {idA, idB}: explica por que A custou mais ou menos que B.
-//  - Par com explicação pronta (gerada antes pelo Claude) -> DEMONSTRAÇÃO, sem chamar a API, custo zero.
-//  - Qualquer outro par -> AO VIVO: chama o Claude (cerca de 2 a 5 centavos de dólar).
+//  - Par com explicação pronta (gerada antes pelo Claude) -> DEMONSTRAÇÃO, sem chamar a API do Claude.
+//  - Qualquer outro par -> AO VIVO: chama o Claude. Gratuito para o visitante: a API paga é do desenvolvedor.
 import { criarCliente, compararComClaude, ErroIA } from "../lib/claude.js";
 import { listarRegistros } from "../lib/mockapi.js";
 import { permitir } from "../lib/rateLimit.js";
@@ -8,7 +8,7 @@ import { lerJson, obterHistorico, ipDe, lerCorpo } from "../lib/arquivos.js";
 
 const indisponivel = (motivo) =>
   Response.json(
-    { modo: "indisponivel", erro: `${motivo} Os pares marcados como "explicação pronta" continuam disponíveis sem custo.` },
+    { modo: "indisponivel", erro: `${motivo} Os pares marcados como "explicação pronta" continuam disponíveis.` },
     { status: 503 },
   );
 
@@ -40,7 +40,7 @@ export async function POST(request) {
   }
 }
 
-/** GET /api/comparar — lista os pares com explicação pronta (para a tela marcá-los como "sem custo"). */
+/** GET /api/comparar — lista os pares com explicação pronta (para a tela marcá-los como demonstração). */
 export async function GET() {
   return Response.json({ prontas: Object.keys(await lerJson("comparacoes.json", {})) });
 }

@@ -15,12 +15,12 @@ function selecionarCenario(card) {
   document.getElementById("csv-erros").innerHTML = "";
   document.getElementById("csv-previa").innerHTML = "";
   btn.disabled = false;
-  status.innerHTML = `<strong>${esc(card.querySelector("h3").textContent.trim())}</strong> · demonstração: mostra o resultado gerado antes pelo Claude, <strong>sem chamar a API e sem custo</strong>.`;
+  status.innerHTML = `<strong>${esc(card.querySelector("h3").textContent.trim())}</strong> · demonstração: mostra o resultado gerado antes pelo Claude, <strong>sem chamar a API</strong>.`;
 }
 
 document.querySelectorAll(".card-cenario").forEach((card) => card.addEventListener("click", () => selecionarCenario(card)));
 
-// Link direto para um cenário: /?cenario=cenario-1 já mostra o resultado de demonstração (sem custo).
+// Link direto para um cenário: /?cenario=cenario-1 já mostra o resultado de demonstração (não chama a IA).
 const cenarioDaUrl = new URLSearchParams(location.search).get("cenario");
 const cardDaUrl = document.querySelector(`.card-cenario[data-cenario="${CSS.escape(cenarioDaUrl ?? "")}"]`);
 if (cardDaUrl) {
@@ -49,7 +49,7 @@ document.getElementById("arquivo").addEventListener("change", async (ev) => {
 
   entrada = erros.length || !pedidos.length ? null : { pedidos, rotulo: arquivo.name.replace(/\.csv$/i, "") };
   btn.disabled = !entrada;
-  status.innerHTML = entrada ? `<strong>${esc(arquivo.name)}</strong> · IA ao vivo: ao clicar, <strong>chama a API do Claude</strong> (alguns centavos) e salva no histórico.` : "O CSV tem erros.";
+  status.innerHTML = entrada ? `<strong>${esc(arquivo.name)}</strong> · IA ao vivo: ao clicar, <strong>chama a API do Claude</strong> e salva no histórico. Gratuito para você.` : "O CSV tem erros.";
 });
 
 btn.addEventListener("click", async () => {
@@ -83,7 +83,7 @@ btn.addEventListener("click", async () => {
 function mostrarResultado({ modo, registro: r, salvo, aviso }) {
   const selo = modo === "ao_vivo"
     ? `<span class="badge text-bg-success selo"><i class="bi bi-broadcast"></i> IA ao vivo · chamada real ao Claude</span>`
-    : `<span class="badge text-bg-secondary selo"><i class="bi bi-collection-play"></i> Demonstração · resultado gerado antes pelo Claude · sem custo</span>`;
+    : `<span class="badge text-bg-secondary selo"><i class="bi bi-collection-play"></i> Demonstração · resultado gerado antes pelo Claude</span>`;
   const avisos = [
     aviso ? `<div class="alert alert-info py-2 small mb-2">${esc(aviso)}</div>` : "",
     modo === "ao_vivo" && !salvo ? `<div class="alert alert-warning py-2 small mb-2">O histórico está indisponível: esta roteirização não foi salva no dashboard.</div>` : "",

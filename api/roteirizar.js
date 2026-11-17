@@ -1,6 +1,6 @@
 // POST /api/roteirizar
-//  - {cenario: "cenario-1"}  -> DEMONSTRAÇÃO: devolve o resultado gerado antes pelo Claude. Não chama a API, custo zero.
-//  - {pedidos: [...], rotulo?} -> AO VIVO: chama o Claude de verdade (alguns centavos) e salva no histórico.
+//  - {cenario: "cenario-1"}  -> DEMONSTRAÇÃO: devolve o resultado gerado antes pelo Claude. Não chama a API do Claude.
+//  - {pedidos: [...], rotulo?} -> AO VIVO: chama o Claude de verdade e salva no histórico. Gratuito para o visitante: a API paga é do desenvolvedor.
 import { carregarDados } from "../lib/dados.js";
 import { criarCliente, ErroIA } from "../lib/claude.js";
 import { executarRoteirizacao } from "../lib/roteirizacao.js";
@@ -11,7 +11,7 @@ import { sanitizarPedido, sanitizarRotulo } from "../lib/pedidos.js";
 
 const indisponivel = (motivo) =>
   Response.json(
-    { modo: "indisponivel", erro: `${motivo} Os 3 cenários prontos continuam disponíveis (demonstração sem custo).` },
+    { modo: "indisponivel", erro: `${motivo} Os 3 cenários prontos continuam disponíveis (demonstração).` },
     { status: 503 },
   );
 
@@ -20,7 +20,7 @@ export async function POST(request) {
   const corpo = await lerCorpo(request);
   if (!corpo) return Response.json({ erro: "Corpo da requisição inválido." }, { status: 400 });
 
-  // Cenário pronto: sempre o resultado pré-gerado (sem Claude, sem custo, sem gravar no histórico).
+  // Cenário pronto: sempre o resultado pré-gerado (sem chamar o Claude, sem gravar no histórico).
   if (corpo.cenario) {
     if (!/^cenario-[1-3]$/.test(corpo.cenario)) return Response.json({ erro: "Cenário desconhecido." }, { status: 400 });
     const pronto = await lerJson(`resultados/${corpo.cenario}.json`);
