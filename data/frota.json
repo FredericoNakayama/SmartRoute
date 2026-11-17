@@ -1,0 +1,6 @@
+[
+  { "tipo": "VUC", "capacidade_kg": 3000, "capacidade_paletes": 8, "custo_fixo": 350, "custo_km": 2.2 },
+  { "tipo": "Toco", "capacidade_kg": 6000, "capacidade_paletes": 12, "custo_fixo": 500, "custo_km": 3.0 },
+  { "tipo": "Truck", "capacidade_kg": 12000, "capacidade_paletes": 18, "custo_fixo": 700, "custo_km": 3.8 },
+  { "tipo": "Carreta", "capacidade_kg": 27000, "capacidade_paletes": 28, "custo_fixo": 1100, "custo_km": 5.2 }
+]

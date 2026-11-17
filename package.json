@@ -1,0 +1,17 @@
+{
+  "name": "roteirizador-fretes-ia",
+  "version": "1.0.0",
+  "description": "Roteirizador de fretes com IA (Claude) guiado por uma spec de regras de negócio — demo de portfólio com dados fictícios.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env dev-server.js",
+    "test": "node --test tests/"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.9.0"
+  }
+}

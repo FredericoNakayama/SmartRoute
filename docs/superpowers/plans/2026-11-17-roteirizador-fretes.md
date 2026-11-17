@@ -45,6 +45,16 @@ scripts/gerar-cenarios.js  scripts/gerar-historico.js
 tests/*.test.js   dev-server.js   vercel.json   package.json   README.md
 ```
 
+## ⚠ Revisão após a sessão da spec (prevalece sobre o texto abaixo)
+A spec `spec/regras.md` trocou o modelo de distância/janela por **transportadoras, modalidades (lotação FTL / fracionado LTL), prazos e disponibilidade**. Onde as tasks abaixo citarem distâncias, janelas ou `custoRota` por km, valem estas definições:
+- **Arquivos:** `data/distancias.json` → `data/cidades.json` (array de chaves `"Cidade-UF"`); novo `data/transportadoras.json`; `data/parametros.json = {max_paradas: 4, max_pedidos: 60}`. `carregarDados() → {frota, cidades, transportadoras, parametros, spec}`.
+- **Pedido:** `{id, cliente, cidade, uf, peso_kg, paletes, data_limite_entrega: "YYYY-MM-DD", restricao_veiculo: ""|tipo, aceita_fracionado: boolean}`.
+- **Cenário:** `{id, rotulo, data_envio: "YYYY-MM-DD", disponibilidade: {T1: {veiculos: {VUC, Toco, Truck, Carreta}, fracionado_paletes: {RJ, RS}}, ...}, pedidos}`. O gerador (Task 2) produz disponibilidade com variações (ex.: semana sem Carreta na T1; espaço fracionado reduzido).
+- **Resultado do Claude:** `{envios: [{modalidade: "lotacao"|"fracionado", transportadora, veiculo: tipo|null, uf, pedidos: [ids], justificativa}], nao_alocados: [{pedido_id, motivo}], resumo}`.
+- **Task 3:** `custoEnvio(envio, pedidosById, transportadoras) → number`; `custoReferencia(pedidos, frota, transportadoras) → {custo, nao_atendiveis}`; `validar(resultado, cenario, dados) → {envios: EnvioEnriquecido[], violacoes, custo_total}` com regras `R1_inexistente`, `R1_duplicado`, `R1_esquecido`, `R2_capacidade_kg`, `R2_capacidade_paletes`, `R3_espaco_fracionado`, `R4_disponibilidade`, `R5_combinacao_invalida`, `R6_restricao_veiculo`, `R7_prazo`, `R8_mistura_uf`, `R9_max_paradas`, `R10_exige_dedicado`. `EnvioEnriquecido = envio + {peso_kg, paletes, ocupacao_kg|null, custo}`.
+- **Registro:** `mix_veiculos` ganha a chave `Fracionado` (nº de pedidos em fracionado); `ocupacao_media` considera só lotações; novo campo `custo_por_transportadora: {T1, T2, T3}`.
+- **Task 4:** `CIDADES_VALIDAS` = conteúdo de `data/cidades.json`; colunas do CSV = campos do Pedido; `aceita_fracionado` aceita `sim/não/true/false/1/0`; `data_limite_entrega` aceita `YYYY-MM-DD` ou `DD/MM/AAAA`. O CSV enviado usa como `data_envio` e disponibilidade os do cenário 1.
+
 ## Formatos compartilhados (usados por várias tasks)
 - **Pedido:** `{id: "P001", cliente: string, cidade: string, uf: "RJ"|"RS", peso_kg: number, paletes: integer, janela_inicio: "YYYY-MM-DDTHH:MM", janela_fim: "YYYY-MM-DDTHH:MM", restricao_veiculo: "" | "VUC" | "Toco" | "Truck" | "Carreta"}`. `restricao_veiculo` = maior veículo aceito pelo cliente; `""` = sem restrição.
 - **Veículo (`data/frota.json`):** `{tipo, capacidade_kg, capacidade_paletes, custo_fixo, custo_km}`, em ordem crescente de tamanho.

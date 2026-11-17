@@ -64,12 +64,14 @@ Funções serverless na Vercel (JS)
    └── POST /api/comparar    → Claude explica a diferença entre 2 roteirizações
 ```
 
-### Domínio fictício
-- **Origem:** CD fictício em Cajamar/SP.
-- **Destinos:** cidades de RJ e RS (as duas rotas do caso real), com distância fixa em tabela (`data/distancias.json`).
-- **Frota (`data/frota.json`):** VUC, Toco, Truck e Carreta — capacidade em kg e paletes, custo fixo por viagem e custo por km.
-- **Pedido:** `id, cliente, cidade, uf, peso_kg, paletes, janela_inicio, janela_fim, restricao_veiculo`.
-- **Spec de regras (`spec/regras.md`):** escrita por Frederico no primeiro bloco do sprint e formatada pelo Claude. As regras abaixo são só ponto de partida: capacidade de peso e paletes; janela de entrega; restrição de veículo por cliente; não misturar RJ e RS; máximo de paradas por rota; consolidar pedidos do mesmo corredor; todo pedido alocado uma vez ou listado como não alocado com motivo.
+### Domínio fictício (revisado na sessão da spec)
+O problema real era **escolher como enviar cada carga de café pelo menor preço**, comparando transportadoras, tipos de veículo e modalidades. Distância e janela de horário saem; entram transportadoras, modalidades, prazos e disponibilidade.
+- **Origem:** CD fictício em Cajamar/SP. **Destinos:** 5 cidades no RJ e 5 no RS (`data/cidades.json`).
+- **Frota (`data/frota.json`):** VUC < Toco < Truck < Carreta, com capacidade em kg e paletes.
+- **Transportadoras (`data/transportadoras.json`, 3 fictícias):** por UF — lotação (FTL: preço por tipo de veículo, adicional por parada, prazo) e fracionado (LTL: preço por palete, mínimo por pedido, prazo, veículo de entrega). Nem toda transportadora opera todo veículo.
+- **Cenário (um dia de envio):** `data_envio`, pedidos e disponibilidade do dia (veículos livres por transportadora e paletes de espaço fracionado por transportadora/UF, já reduzidos por restrições de empilhamento de cargas de terceiros).
+- **Pedido:** `id, cliente, cidade, uf, peso_kg, paletes, data_limite_entrega, restricao_veiculo, aceita_fracionado`.
+- **Spec (`spec/regras.md`):** R1 todo pedido com destino · R2 capacidade · R3 espaço fracionado · R4 disponibilidade · R5 transportadora opera a combinação · R6 restrição de veículo do cliente · R7 prazo · R8 uma UF por rota · R9 máx. 4 cidades · R10 cliente que exige carga dedicada. Objetivo: menor custo total; pagar mais só para cumprir prazo.
 
 ### Entrada de pedidos
 1. **Cenários prontos (3):** arquivos em `data/cenarios/`.
@@ -83,7 +85,9 @@ Funções serverless na Vercel (JS)
 5. Salva no MockAPI: data, origem (cenário/CSV), nº de pedidos, rotas, custo, saving, ocupação média, mix de veículos e violações.
 6. A tela mostra cards de rota, violações destacadas, custo total e saving.
 
-**Fórmula de custo (decisão do Claude):** custo fixo do veículo + custo/km × (distância até a cidade mais distante da rota + 20 km por parada adicional).
+**Custo (das tabelas das transportadoras):** lotação = preço do veículo na UF + adicional por parada × (cidades distintas − 1); fracionado = por pedido, máx(preço/palete × paletes, mínimo).
+
+**Referência para o saving ("sem otimização"):** cada pedido em lotação dedicada, no menor veículo que o atende, na transportadora mais barata para esse veículo (ignorando disponibilidade).
 
 ### Dashboard (`/dashboard.html`)
 - **Indicadores:** custo total, custo por palete, saving médio, ocupação média, nº de roteirizações.

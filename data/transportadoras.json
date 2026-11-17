@@ -1,0 +1,38 @@
+[
+  {
+    "id": "T1", "nome": "Alfa Cargas (fictícia)", "adicional_parada": 180,
+    "lotacao": {
+      "RJ": { "prazo_dias": 2, "precos": { "VUC": 1450, "Toco": 1950, "Truck": 2550, "Carreta": 3450 } },
+      "RS": { "prazo_dias": 4, "precos": { "VUC": 3300, "Toco": 4400, "Truck": 5700, "Carreta": 7600 } }
+    },
+    "fracionado": {
+      "veiculo_entrega": "Truck",
+      "RJ": { "prazo_dias": 3, "preco_palete": 210, "minimo": 380 },
+      "RS": { "prazo_dias": 6, "preco_palete": 390, "minimo": 700 }
+    }
+  },
+  {
+    "id": "T2", "nome": "Rota Sul Logística (fictícia)", "adicional_parada": 200,
+    "lotacao": {
+      "RJ": { "prazo_dias": 2, "precos": { "Toco": 2050, "Truck": 2650, "Carreta": 3600 } },
+      "RS": { "prazo_dias": 3, "precos": { "VUC": 3100, "Toco": 4100, "Truck": 5300, "Carreta": 7100 } }
+    },
+    "fracionado": {
+      "veiculo_entrega": "Carreta",
+      "RJ": { "prazo_dias": 4, "preco_palete": 230, "minimo": 400 },
+      "RS": { "prazo_dias": 5, "preco_palete": 340, "minimo": 650 }
+    }
+  },
+  {
+    "id": "T3", "nome": "Expressa Brasil (fictícia)", "adicional_parada": 150,
+    "lotacao": {
+      "RJ": { "prazo_dias": 1, "precos": { "VUC": 1700, "Toco": 2300, "Truck": 2950, "Carreta": 3950 } },
+      "RS": { "prazo_dias": 2, "precos": { "VUC": 3700, "Toco": 4800, "Truck": 6200, "Carreta": 8300 } }
+    },
+    "fracionado": {
+      "veiculo_entrega": "Toco",
+      "RJ": { "prazo_dias": 2, "preco_palete": 260, "minimo": 450 },
+      "RS": { "prazo_dias": 3, "preco_palete": 420, "minimo": 800 }
+    }
+  }
+]
