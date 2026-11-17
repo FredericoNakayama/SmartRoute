@@ -35,7 +35,7 @@ test("roteirização chama o modelo com spec, schema e fallback", async () => {
   const r = await roteirizarComClaude(entrada, c);
   assert.deepEqual(r, ok);
   const p = c.chamadas[0];
-  assert.equal(p.model, "claude-opus-5-5");
+  assert.equal(p.model, "claude-sonnet-5-5");
   assert.equal(p.fallbacks, "default");
   assert.ok(p.betas.includes("server-side-fallback-2026-07-01"));
   assert.equal(p.output_config.format.type, "json_schema");
