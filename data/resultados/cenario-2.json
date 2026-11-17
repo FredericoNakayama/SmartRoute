@@ -1,0 +1,256 @@
+{
+  "modo": "demo",
+  "registro": {
+    "data": "2026-11-30",
+    "rotulo": "Pico de fim de mês",
+    "origem": "cenario",
+    "cenario_id": "cenario-2",
+    "n_pedidos": 55,
+    "n_envios": 0,
+    "paletes_total": 0,
+    "custo_total": 0,
+    "custo_referencia": 133100,
+    "saving_pct": 100,
+    "custo_por_palete": 0,
+    "ocupacao_media": 0,
+    "mix_veiculos": {
+      "VUC": 0,
+      "Toco": 0,
+      "Truck": 0,
+      "Carreta": 0,
+      "Fracionado": 0
+    },
+    "custo_por_transportadora": {
+      "T1": 0,
+      "T2": 0,
+      "T3": 0
+    },
+    "n_violacoes": 0,
+    "violacoes": [],
+    "envios": [],
+    "nao_alocados": [
+      {
+        "pedido_id": "P001",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P002",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P003",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P004",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P005",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P006",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P007",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P008",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P009",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P010",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P011",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P012",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P013",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P014",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P015",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P016",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P017",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P018",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P019",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P020",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P021",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P022",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P023",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P024",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P025",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P026",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P027",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P028",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P029",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P030",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P031",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P032",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P033",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P034",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P035",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P036",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P037",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P038",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P039",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P040",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P041",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P042",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P043",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P044",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P045",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P046",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P047",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P048",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P049",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P050",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P051",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P052",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P053",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P054",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      },
+      {
+        "pedido_id": "P055",
+        "motivo": "Provisório: resultado de demonstração ainda não gerado."
+      }
+    ],
+    "resumo": "Resultado provisório — será substituído por uma execução real do Claude."
+  },
+  "salvo": false
+}
